@@ -18,11 +18,11 @@
 
 Two families. Italic is used sparingly — one word per headline — so it carries weight when it appears.
 
-- **Display/Headlines:** Fraunces (variable, opsz axis), 500 weight, italic 400 for accents. Use `font-variation-settings: 'opsz' 144` at display sizes, `'opsz' 72` at UI sizes.
+- **Display/Headlines:** Artifex CF (variable, opsz axis), 500 weight, italic 400 for accents. Use `font-variation-settings: 'opsz' 144` at display sizes, `'opsz' 72` at UI sizes.
 - **Body:** Inter 400, 19px, 1.6 leading.
 - **UI/Labels:** Inter 500.
-- **Specs/Numbers:** Fraunces 500 with `font-variant-numeric: tabular-nums` for specification values (reads like a drawing); Inter 500 tabular-nums for in-card rows.
-- **Loading:** Google Fonts `<link>` with `Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap`.
+- **Specs/Numbers:** Artifex CF 500 with `font-variant-numeric: tabular-nums` for specification values (reads like a drawing); Inter 500 tabular-nums for in-card rows.
+- **Loading:** Google Fonts `<link>` with `Artifex CF:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap`.
 
 ### Scale (px)
 - Display 1: clamp(56, 8.5vw, 128) — hero h1
@@ -114,19 +114,19 @@ Flips to warm ink `#1E1A12` canvas, `#2B2418` paper, cream text, lightened ochre
 
 ### Product cards
 - Same paper/divider/radius as cards. 380px min-height.
-- Fraunces 500 at 44px for dimensions (`1200 × 800`). `--ochre-deep` italic for "custom".
+- Artifex CF 500 at 44px for dimensions (`1200 × 800`). `--ochre-deep` italic for "custom".
 - Dashed underline spec rows with uppercase Inter labels + serif values.
 
 ### Nav
 - Sticky, translucent `rgba(237,227,204,0.78)` with `backdrop-filter: saturate(180%) blur(20px)`.
-- 68px tall. Fraunces wordmark with ochre circular `Š` mark.
+- 68px tall. Artifex CF wordmark with ochre circular `Š` mark.
 - Ink pill CTA on the right.
 - Links `--ink-soft`, hover `--ochre-deep`.
 
 ### Stat strip
 - Full-bleed `--sage` background, `--paper` text.
 - 4 columns, 1px left border per stat, first-stat border is `--ochre-soft`.
-- Fraunces 500 tabular numbers at clamp(44, 5.5vw, 76), italic ochre-soft accents (`+`, `h`, `%`).
+- Artifex CF 500 tabular numbers at clamp(44, 5.5vw, 76), italic ochre-soft accents (`+`, `h`, `%`).
 
 ### Feature poster
 - `--sage` bg, 24px radius, 88/72 padding.
@@ -139,7 +139,7 @@ Flips to warm ink `#1E1A12` canvas, `#2B2418` paper, cream text, lightened ochre
 - Serif headline with italic ochre-soft emphasis.
 
 ### Pull-quote (editorial)
-- `--paper` full-bleed section, Fraunces italic at clamp(28, 3.6vw, 48).
+- `--paper` full-bleed section, Artifex CF italic at clamp(28, 3.6vw, 48).
 - Ochre `"` marks in CSS `::before`/`::after`.
 - 1/2 grid: label left, quote right.
 
@@ -148,7 +148,7 @@ Flips to warm ink `#1E1A12` canvas, `#2B2418` paper, cream text, lightened ochre
 - Uppercase `b` tag with semantic color + caption text.
 
 ### Certifications
-- Quiet Fraunces 500 typographic list, 48px gap, centered on `--divider` top border. No boxes.
+- Quiet Artifex CF 500 typographic list, 48px gap, centered on `--divider` top border. No boxes.
 
 ## Accessibility
 - Body text contrast ratio 12:1+ (`--ink` on `--canvas`).
@@ -168,9 +168,11 @@ Flips to warm ink `#1E1A12` canvas, `#2B2418` paper, cream text, lightened ochre
 ## Decisions Log
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-04-24 | Initial design system derived from existing brand artwork (wordmark + two brand illustrations) via /design-consultation | Grounds system in assets already approved; cream+ochre+sage palette pulled directly from brand art; Fraunces selected to match existing SLIŠURIĆ wordmark's editorial serif energy |
+| 2026-04-24 | Initial design system derived from existing brand artwork (wordmark + two brand illustrations) via /design-consultation | Grounds system in assets already approved; cream+ochre+sage palette pulled directly from brand art; Artifex CF selected to match existing SLIŠURIĆ wordmark's editorial serif energy |
 | 2026-04-24 | Dropped signal-yellow and tech-blue accents (v3 iteration) | User feedback: too loud, wrong category feeling; ochre provides action-warmth without noise |
-| 2026-04-24 | Fraunces chosen over Instrument Serif | Variable optical-size axis supports the full display-to-UI scale; italic has character; matches logo wordmark more closely |
+| 2026-04-24 | Artifex CF chosen over Instrument Serif | Variable optical-size axis supports the full display-to-UI scale; italic has character; matches logo wordmark more closely |
 
 ## Preview
 Design-system preview page: `/tmp/slish-design-preview.html` (v4).
+
+| 2026-04-24 | Fraunces replaced with Artifex CF (per client font selection) | Self-hosted via next/font/local from `public/fonts/`; CSS variable renamed `--font-artifex` |

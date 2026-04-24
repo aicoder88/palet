@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "../styles/icons.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -13,11 +14,27 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  subsets: ["latin", "latin-ext"],
-  axes: ["opsz"],
-  variable: "--font-fraunces",
+const artifex = localFont({
+  variable: "--font-artifex",
   display: "swap",
+  src: [
+    { path: "../../public/fonts/ArtifexCFExtraLight.woff2", weight: "200", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFExtraLightItalic.woff2", weight: "200", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFLight.woff2", weight: "300", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFLightItalic.woff2", weight: "300", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFBook.woff2", weight: "350", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFBookItalic.woff2", weight: "350", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFRegular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFRegularItalic.woff2", weight: "400", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFDemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFDemiBoldItalic.woff2", weight: "600", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFBold.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFBoldItalic.woff2", weight: "700", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFExtraBold.woff2", weight: "800", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFExtraBoldItalic.woff2", weight: "800", style: "italic" },
+    { path: "../../public/fonts/ArtifexCFHeavy.woff2", weight: "900", style: "normal" },
+    { path: "../../public/fonts/ArtifexCFHeavyItalic.woff2", weight: "900", style: "italic" },
+  ],
 });
 
 const siteUrl = COMPANY.siteUrl;
@@ -155,7 +172,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${artifex.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

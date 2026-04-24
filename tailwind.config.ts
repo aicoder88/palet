@@ -29,7 +29,7 @@ const config = {
           "system-ui",
           "sans-serif",
         ],
-        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        serif: ["var(--font-artifex)", "Georgia", "serif"],
       },
       colors: {
         /* shadcn/ui compatibility */
