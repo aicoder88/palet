@@ -1,45 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import { HERO } from "@/lib/constants";
+import { HERO, COMPANY, PEER_LOGOS } from "@/lib/constants";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0F2318] via-[#1C3A2A] to-[#0A1A10]" />
+    <section
+      className="relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-[#0F2318]"
+      aria-label="Šlišurić — drvene palete za proizvođače i distributere"
+    >
+      {/* Hero photo — production / warehouse with stacked EPAL pallets. */}
+      <Image
+        src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=2000&q=70"
+        alt="Skladište s drvenim EPAL paletama — proizvodnja Šlišurić d.o.o."
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover opacity-25"
+      />
 
-      {/* Wood grain SVG overlay */}
-      <div className="absolute inset-0 opacity-[0.04]">
-        <svg
-          className="w-full h-full"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <filter id="wood">
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02 0.8"
-              numOctaves="4"
-              seed="2"
-              stitchTiles="stitch"
-            />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#wood)" />
-        </svg>
-      </div>
+      {/* Dark gradient overlay for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0F2318]/95 via-[#1C3A2A]/85 to-[#0A1510]/95" />
 
-      {/* Subtle radial gradient for depth */}
-      <div className="absolute inset-0 bg-radial-gradient" style={{
-        background: "radial-gradient(ellipse at 30% 40%, rgba(200,168,122,0.08) 0%, transparent 60%)"
-      }} />
-
-      {/* Grid pattern overlay */}
+      {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
@@ -47,111 +35,95 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="max-w-4xl"
         >
-          {/* Label */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#C8A87A] text-xs font-semibold uppercase tracking-widest mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8A87A] animate-pulse" />
-            Vodeći proizvođač paleta u Hrvatskoj
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[#C8A87A] text-[11px] font-semibold uppercase tracking-widest mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C8A87A]" />
+            {HERO.eyebrow}
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6 text-balance">
+            {HERO.h1}
+          </h1>
+
+          <p className="text-white/80 text-base sm:text-lg max-w-2xl leading-relaxed mb-9 text-balance">
+            {HERO.subheadline}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-3">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#C8A87A] text-[#1C3A2A] font-bold text-sm sm:text-base transition-all duration-200 hover:bg-[#D4B488] hover:scale-[1.02] shadow-xl"
+            >
+              {HERO.primaryCta}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-white/15"
+            >
+              <Phone className="w-4 h-4" /> {HERO.secondaryCta}
+            </a>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/60 mt-4">
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#C8A87A]" /> ISPM-15 ovlašteni
+            </span>
+            <span>•</span>
+            <span>EPAL licencirani partner</span>
+            <span>•</span>
+            <span>Isporuka u cijelu EU</span>
           </div>
         </motion.div>
 
-        <motion.h1
-          className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-8"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-        >
-          Paleti koji stižu
-          <br />
-          <span className="text-[#C8A87A]">na vrijeme.</span>
-          <br />
-          Svaki put.
-        </motion.h1>
-
-        <motion.p
-          className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
-        >
-          Kasne isporuke, trula daska, dobavljač koji ne diže telefon — znamo zašto ste ovdje. Šlišurić isporučuje{" "}
-          <strong className="text-white font-semibold">
-            kvalitetne drvene palete u roku 24-48h
-          </strong>
-          , s certifikatom i bez izgovora.
-        </motion.p>
-
-        {/* CTAs */}
+        {/* Peer logo row — "Vjeruju nam" */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 24 }}
+          className="mt-16 sm:mt-20"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <Link
-            href="/kontakt"
-            className="pulse-green inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#C8A87A] text-[#1C3A2A] font-bold text-base transition-all duration-200 hover:bg-[#D4B488] hover:scale-105 shadow-xl"
-          >
-            Zatražite ponudu
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            href="/proizvodi"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base transition-all duration-200 hover:bg-white/20 group"
-          >
-            Pogledajte proizvode
-            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
-        </motion.div>
-
-        {/* Stats row */}
-        <motion.div
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.55 }}
-        >
-          {[
-            { num: "500.000+", label: "Paleta isporučeno" },
-            { num: "98.7%", label: "Isporuka na vrijeme" },
-            { num: "50+", label: "Godina iskustva" },
-            { num: "16", label: "Tipova paleta" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="text-center p-4 rounded-xl bg-white/5 border border-white/10"
-            >
-              <div className="text-2xl sm:text-3xl font-bold text-[#C8A87A] leading-none mb-1">
-                {stat.num}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 border-t border-white/10 pt-8">
+            <div className="flex-shrink-0">
+              <div className="text-[11px] font-semibold uppercase tracking-widest text-[#C8A87A] mb-1">
+                Vjeruju nam
               </div>
-              <div className="text-white/60 text-xs font-medium uppercase tracking-wide">
-                {stat.label}
-              </div>
+              <Link
+                href="/reference-kupci"
+                className="text-xs text-white/60 hover:text-white/90 underline-offset-4 hover:underline inline-flex items-center gap-1"
+              >
+                Pogledajte studije slučaja →
+              </Link>
             </div>
-          ))}
+            <ul className="flex flex-wrap items-center gap-3 sm:gap-4 flex-1">
+              {PEER_LOGOS.map((logo, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-dashed border-white/15"
+                >
+                  <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-[#C8A87A] font-bold text-[10px]">
+                    {logo.placeholder ? "LOGO" : logo.name.slice(0, 2).toUpperCase()}
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-xs text-white/85 font-semibold">
+                      {logo.name}
+                    </div>
+                    <div className="text-[10px] text-white/40 uppercase tracking-wide">
+                      {logo.industry}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-      >
-        <div className="flex flex-col items-center gap-1 text-white/40">
-          <span className="text-xs font-medium uppercase tracking-widest">
-            Skrolajte
-          </span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
-        </div>
-      </motion.div>
     </section>
   );
 }

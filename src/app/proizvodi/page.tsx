@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import PlaceholderImage from "@/components/PlaceholderImage";
 
 export const metadata: Metadata = {
   title: "Proizvodi — Šlišurić d.o.o.",
@@ -197,6 +198,16 @@ export default function ProizvodiPage() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Hero image strip */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
+        <PlaceholderImage
+          variant="pallets"
+          label="Pogon Šlišurić — fotografija uskoro"
+          aspect="aspect-[16/5]"
+          className="shadow-2xl"
+        />
       </div>
 
       {/* Product sections */}

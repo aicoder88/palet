@@ -1,0 +1,43 @@
+/* Šlišurić custom icon font — optional decorative glyphs.
+   Full class map in /icons/css/slisuric-ikone.css.
+   Fonts are served from /public/icons-font/ via the path below. */
+
+@font-face {
+  font-family: "slisuric-ikone";
+  src: url("/icons-font/slisuric-ikone.woff2") format("woff2"),
+       url("/icons-font/slisuric-ikone.woff") format("woff"),
+       url("/icons-font/slisuric-ikone.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.sl-icon {
+  font-family: "slisuric-ikone";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selected glyphs used on-site. Codes mirror /icons/css/slisuric-ikone-codes.css. */
+.sl-icon-forklift::before { content: "\e815"; }
+.sl-icon-log-pile::before { content: "\e81b"; }
+.sl-icon-lumber::before { content: "\e81d"; }
+.sl-icon-saw::before { content: "\e80b"; }
+.sl-icon-plank::before { content: "\e803"; }
+.sl-icon-leaf::before { content: "\e804"; }
+
+/* Product glyphs — one per PRODUCT_TYPES entry. */
+.sl-icon-epal::before { content: "\e850"; }         /* wooden-palette-103108 */
+.sl-icon-pallet-custom::before { content: "\e859"; } /* pallet-882259d */
+.sl-icon-pallet-used::before { content: "\e860"; }   /* pallet-882258 */
+.sl-icon-ispm::before { content: "\e835"; }          /* timber-4459705 (stamped timber) */
+.sl-icon-elementi::before { content: "\e84e"; }      /* wood-plank-892122 */
+.sl-icon-biomasa::before { content: "\e84b"; }       /* wood-pile-2195329 */

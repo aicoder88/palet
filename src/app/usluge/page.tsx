@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Globe, Wrench, Settings } from "lucide-react";
+import PlaceholderImage from "@/components/PlaceholderImage";
 
 export const metadata: Metadata = {
   title: "Usluge — Šlišurić d.o.o.",
@@ -32,6 +33,15 @@ export default function UslugePage() {
             brušenje alata i izradu ambalaže po narudžbi.
           </p>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
+        <PlaceholderImage
+          variant="ispm"
+          label="ISPM-15 komora — fotografija uskoro"
+          aspect="aspect-[16/5]"
+          className="shadow-2xl"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">

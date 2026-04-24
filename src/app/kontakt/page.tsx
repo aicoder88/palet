@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
+import PlaceholderImage from "@/components/PlaceholderImage";
 
 export const metadata: Metadata = {
-  title: "Kontakt — Šlišurić d.o.o.",
+  title: "Kontakt i upit za ponudu — EPAL palete, ISPM-15, izvoz EU",
   description:
-    "Zatražite ponudu za drvene palete, EPAL palete, biomasu ili termičko tretiranje ISPM-15. Odgovaramo unutar 2 sata.",
+    "Pošaljite RFQ s volumenom, dimenzijama i odredištem — odgovor s konkretnom cijenom i rokom u roku 24 h. Isporuka u cijelu EU i regiju.",
+  alternates: { canonical: "/kontakt" },
 };
 
 export default function KontaktPage() {
@@ -29,10 +31,19 @@ export default function KontaktPage() {
             Kontakt
           </h1>
           <p className="text-white/75 text-xl max-w-xl leading-relaxed">
-            Pošaljite upit i odgovaramo unutar 2 radna sata. Brzo, konkretno, bez
+            Pošaljite upit i odgovaramo unutar 24 radnih sati. Brzo, konkretno, bez
             nespotrebnih procesa.
           </p>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
+        <PlaceholderImage
+          variant="office"
+          label="Pogon Zagreb — fotografija uskoro"
+          aspect="aspect-[16/5]"
+          className="shadow-2xl"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -130,7 +141,7 @@ export default function KontaktPage() {
               <div className="space-y-3">
                 {[
                   { step: "01", text: "Primamo vaš upit" },
-                  { step: "02", text: "Kontaktiramo vas u 2h" },
+                  { step: "02", text: "Kontaktiramo vas u 24h" },
                   { step: "03", text: "Šaljemo konkretnu ponudu" },
                   { step: "04", text: "Dogovaramo isporuku" },
                 ].map((item) => (

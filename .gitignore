@@ -39,16 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Tempo
-
-node_modules/
-**/tempobook/dynamic/
-**/tempobook/storyboards/
-
-# remove git history
-.git
-
-.github/
-**/tempobook/**
-node_modules
