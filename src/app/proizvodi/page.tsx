@@ -36,25 +36,25 @@ const productSections: {
     products: [
       {
         name: "Euro palete (EPAL)",
-        icon: "sl-icon-epal",
+        icon: "icon-noun-wooden-palette-103108",
         desc: "Standardne 1200×800mm palete prema europskim normama. Svaka paleta nosi EPAL žig i certifikat. Prihvaćene diljem Europe, idealne za sve industrije i logistiku.",
         specs: ["Dimenzije: 1200 × 800 mm", "Nosivost: 1500 kg (statički)", "Certifikat: EPAL / EUR1", "Materijal: jelovina / smrekovica"],
       },
       {
         name: "Industrijske palete na zahtjev (16 tipova)",
-        icon: "sl-icon-pallet-custom",
+        icon: "icon-noun-pallet-882259c",
         desc: "Širi asortiman od 16 tipova industrijskih paleta za specifične potrebe. Nestandardne dimenzije, pojačana nosivost, posebna obrada.",
         specs: ["16 standardnih tipova", "Dimenzije prema narudžbi", "Nosivost do 5000 kg", "Mogućnost impregancije"],
       },
       {
         name: "Palete do 3000mm (na upit)",
-        icon: "sl-icon-pallet-custom",
+        icon: "icon-noun-pallet-882259c",
         desc: "Palete velikih dimenzija za nestandardne industrijske primjene. Idealne za strojeve, metalne konstrukcije i tešku robu.",
         specs: ["Duljina do 3000 mm", "Potpuno prilagodljive", "Pojačana konstrukcija", "Rok isporuke na upit"],
       },
       {
         name: "Drveni sanduci, poklopci i okviri",
-        icon: "sl-icon-elementi",
+        icon: "icon-noun-wooden-beam-2871921",
         desc: "Piljenje i izrada drvene ambalaže prema zahtjevima kupca. Sanduci za strojeve, poklopci za gajbe, okviri za palete.",
         specs: ["Dimenzije po narudžbi", "Različite debljine dasaka", "Mogućnost ISPM-15 tretmana", "Brza izrada"],
       },
@@ -70,13 +70,13 @@ const productSections: {
     products: [
       {
         name: "Prodaja polovnih paleta",
-        icon: "sl-icon-pallet-used",
+        icon: "icon-noun-pallet-882259d",
         desc: "Razni tipovi ispravnih polovnih paleta po povoljnim cijenama. Pregledane i razvrstane po kvaliteti — A, AB i B klasa.",
         specs: ["Euro palete A klase", "Razne dimenzije", "Razvrstano po kvaliteti", "Mogućnost popravka"],
       },
       {
         name: "Otkup polovnih i novih paleta",
-        icon: "sl-icon-forklift",
+        icon: "icon-noun-forklift-1247",
         desc: "Preuzimamo viškove vaših paleta — i polovne i nekorištene. Brzi obračun, preuzimanje na lokaciji, gotovinska ili bankovna uplata.",
         specs: ["Preuzimamo u Vašem skladištu", "Brzi obračun", "Sve tipove paleta", "Transparentno vrednovanje"],
       },
@@ -92,25 +92,25 @@ const productSections: {
     products: [
       {
         name: "Euro elementi za palete",
-        icon: "sl-icon-elementi",
+        icon: "icon-noun-wooden-beam-2871921",
         desc: "Standardne letvice, noge i daske za popravak EPAL paleta prema propisanim dimenzijama. Suha građa, bez grešaka.",
         specs: ["Prema EPAL specifikacijama", "Suha građa (ispod 20% vlage)", "Jelovina / smrekovica", "Brza isporuka"],
       },
       {
         name: "Elementi na zahtjev kupca",
-        icon: "sl-icon-plank",
+        icon: "icon-noun-wood-plank-892122",
         desc: "Letvice, daske i noge nestandardnih dimenzija prema vašem nacrtu. Pilamo na mjeru u vlastitoj pilani.",
         specs: ["Dimenzije po narudžbi", "Različite drvenaste vrste", "Rezanje i blanjanje", "Rok prema dogovoru"],
       },
       {
         name: "Drvene kocke za palete",
-        icon: "sl-icon-elementi",
+        icon: "icon-noun-wooden-beam-2871921",
         desc: "Drvene kocke za izradu blok-paleta. Dostupne u standardnim i nestandardnim dimenzijama.",
         specs: ["Standardne: 78×78×78mm", "Nestandardne dimenzije", "Jelovina / topolovina", "Mogućnost bušenja"],
       },
       {
         name: "Poklopci za gajbe",
-        icon: "sl-icon-plank",
+        icon: "icon-noun-wood-plank-892122",
         desc: "Drveni poklopci za drvene gajbe i kontejnere. Prilagodljivi po dimenzijama i debljini.",
         specs: ["Dimenzije po narudžbi", "Različite debljine", "Brušena površina", "Mogućnost logotipa"],
       },
@@ -126,26 +126,26 @@ const productSections: {
     products: [
       {
         name: "Piljevina (EA kanadska topola 100%)",
-        icon: "sl-icon-biomasa",
+        icon: "icon-noun-log-pile-765200",
         desc: "Fina piljevina isključivo od EA (Eastern American) kanadske topole. Bez kore, bez otpadaka, bez kemijskih sredstava. Idealna za produkciju briketa i peleta.",
         specs: ["100% EA kanadska topola", "Bez kore i kemikalija", "Suha (vlaga ispod 12%)", "Idealna za briket"],
         highlight: true,
       },
       {
         name: "Kora",
-        icon: "sl-icon-leaf",
+        icon: "icon-noun-oak-leaf-4435333",
         desc: "Drvna kora kao biomasa za ogrjev ili kompostiranje. Isporučujemo rasuto ili u vrećama.",
         specs: ["Rasuto ili u vrećama", "Različite drvne vrste", "Za ogrjev ili kompost", "Velika količina"],
       },
       {
         name: "Drvni okrajci sitni — za ogrjev / sječku",
-        icon: "sl-icon-biomasa",
+        icon: "icon-noun-log-pile-765200",
         desc: "Sitni drvni okrajci pogodni za direktno loženje ili sječku. Niski trošak, visoka kalorična vrijednost.",
         specs: ["Za direktno loženje", "Za sječku / čips", "Mješane drvne vrste", "Veće količine"],
       },
       {
         name: "Drvni okrajci dugački — za ogrjev",
-        icon: "sl-icon-log-pile",
+        icon: "icon-noun-log-pile-765201",
         desc: "Duži komadi drvnih okrajaka — za peći, kamine i industrijske kotlove.",
         specs: ["Duljina 20–50 cm", "Za kamine i peći", "Suho drvo", "Veleprodaja"],
       },
@@ -161,37 +161,37 @@ const productSections: {
     products: [
       {
         name: "Krovna drvena građa (prema narudžbi)",
-        icon: "sl-icon-lumber",
+        icon: "icon-noun-lumber-2871922",
         desc: "Krovne grede, rafteri, podrožnice i ostala konstruktivna krovišna građa. HR podrijetlo, sušena, certificirana.",
         specs: ["Jela / Smreka / Ariš / Hrast", "HR podrijetlo", "Sušena i certificirana", "Prema projektu"],
       },
       {
         name: "Lamperija i brodski pod",
-        icon: "sl-icon-plank",
+        icon: "icon-noun-wood-plank-892122",
         desc: "Unutarnja obloga zidova i stropova. Profilirane daske u različitim dimenzijama i drvnim vrstama.",
         specs: ["Jela / Smreka / Hrast", "Profilirani spojevi", "Brušena površina", "Za suhe prostore"],
       },
       {
         name: "Fosna (Hrast / Jela / Ariš / Smreka)",
-        icon: "sl-icon-plank",
+        icon: "icon-noun-wood-plank-892122",
         desc: "Nebrušena ili blanjana fosna za podove, terase i konstruktivne primjene.",
         specs: ["Debljina 24–50 mm", "Različite širine", "Prema narudžbi", "HR drvne vrste"],
       },
       {
         name: "Krovna letva i štafla",
-        icon: "sl-icon-lumber",
+        icon: "icon-noun-lumber-2871922",
         desc: "Standardne krovne letvice i štafle za pričvršćivanje crijepa i ploča. Suha, ravna, bez grešaka.",
         specs: ["30×50 / 40×60 / 50×75 mm", "Standardne duljine", "Suha jelovina", "Velika zaliha"],
       },
       {
         name: "Masivni parket 14–21mm",
-        icon: "sl-icon-plank",
+        icon: "icon-noun-wood-plank-892122",
         desc: "Masivni drvni parket u različitim drvnim vrstama i dimenzijama. Za unutarnje uređenje.",
         specs: ["Debljina 14–21 mm", "Hrast / Jela / Ariš", "Brušen i lakiran", "Na upit"],
       },
       {
         name: "Balkonske ograde",
-        icon: "sl-icon-lumber",
+        icon: "icon-noun-lumber-2871922",
         desc: "Drvene balkonske ograde i rukohvati prema narudžbi. Tretirano drvo za vanjske uvjete.",
         specs: ["Dimenzije po narudžbi", "Impregnirano drvo", "Hrast / Ariš", "Montaža moguća"],
       },
@@ -210,13 +210,14 @@ export default function ProizvodiPage() {
           src: "/images/production_sawmill.png",
           alt: "Proizvodnja paleta u pogonu Šlišurić d.o.o.",
         }}
+        icon="icon-noun-pallet-882259a"
       >
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="flex flex-wrap justify-center gap-2">
           {productSections.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium hover:bg-[#C8A87A] hover:text-[#1C3A2A] hover:border-[#C8A87A] transition-all duration-200"
+              className="px-4 py-1.5 rounded-full bg-paper border border-divider text-ink-soft text-xs font-medium hover:bg-ochre hover:text-paper hover:border-ochre transition-all duration-200"
             >
               {s.title}
             </a>

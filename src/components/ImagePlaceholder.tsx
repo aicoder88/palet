@@ -63,7 +63,7 @@ const TONE: Record<
 };
 
 export default function ImagePlaceholder({
-  icon = "sl-icon-lumber",
+  icon = "icon-noun-lumber-2871922",
   tone = "ochre",
   aspect = "landscape",
   className = "",
@@ -72,7 +72,7 @@ export default function ImagePlaceholder({
   return (
     <div
       aria-hidden
-      className={`relative ${ASPECT[aspect]} rounded-xl overflow-hidden border border-divider ${t.bg} flex items-center justify-center ${className}`}
+      className={`relative ${ASPECT[aspect]} rounded-2xl overflow-hidden border border-divider ${t.bg} flex items-center justify-center ${className}`}
     >
       <div className="absolute inset-0 opacity-60" style={t.grainStyle} />
       <div
@@ -80,7 +80,8 @@ export default function ImagePlaceholder({
         style={t.glowStyle}
       />
       <span
-        className={`relative z-10 sl-icon ${icon} text-5xl sm:text-6xl ${t.fg}`}
+        className={`relative z-10 ${icon} text-5xl sm:text-6xl ${t.fg}`}
+        aria-hidden
       />
     </div>
   );

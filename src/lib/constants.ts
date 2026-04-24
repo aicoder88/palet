@@ -196,7 +196,7 @@ export const PRODUCT_TYPES = [
     title: "Euro / EPAL palete 1200×800",
     description:
       "Licencirane EPAL palete prema UIC 435-2. Nosivost do 1.500 kg, prihvaćene u otvorenom EPAL poolu.",
-    icon: "sl-icon-epal",
+    icon: "icon-noun-wooden-palette-103108",
     href: "/proizvodi#epal",
     keywords: "epal palete, euro palete, palete 1200x800",
   },
@@ -204,7 +204,7 @@ export const PRODUCT_TYPES = [
     title: "Industrijske palete po mjeri",
     description:
       "16 standardnih tipova i izrada po nacrtu kupca do 3.000 mm. Za specifične linije pakiranja.",
-    icon: "sl-icon-pallet-custom",
+    icon: "icon-noun-pallet-882259c",
     href: "/proizvodi#industrijske",
     keywords: "industrijske palete, palete po mjeri, nestandardne palete",
   },
@@ -212,7 +212,7 @@ export const PRODUCT_TYPES = [
     title: "Polovne EUR palete",
     description:
       "Prodaja klasa A/B/C polovnih EUR paleta. Otkup vaših polovnih paleta po dogovorenom cjeniku.",
-    icon: "sl-icon-pallet-used",
+    icon: "icon-noun-pallet-882259d",
     href: "/proizvodi#polovne",
     keywords: "polovne palete, rabljene palete, otkup paleta",
   },
@@ -220,7 +220,7 @@ export const PRODUCT_TYPES = [
     title: "ISPM-15 termičko tretiranje",
     description:
       "Termički tretirane palete za izvoz van EU. Ovlaštena oznaka i PDF dokumentacija uz svaku pošiljku.",
-    icon: "sl-icon-ispm",
+    icon: "icon-noun-reforestation-6050469",
     href: "/usluge#ispm15",
     keywords: "ispm-15, termičko tretiranje, izvozne palete",
   },
@@ -228,7 +228,7 @@ export const PRODUCT_TYPES = [
     title: "Drveni elementi i kocke",
     description:
       "Euro elementi, nožice i kocke za palete, poklopci za gajbe, daske po narudžbi.",
-    icon: "sl-icon-elementi",
+    icon: "icon-noun-wooden-beam-2871921",
     href: "/proizvodi#elementi",
     keywords: "kocke za palete, drveni elementi, euro elementi",
   },
@@ -236,7 +236,7 @@ export const PRODUCT_TYPES = [
     title: "Biomasa i građevinska građa",
     description:
       "Piljevina, kora, okrajci za briketare. Krovna građa, lamperija, brodski pod — sve iz vlastite pilane.",
-    icon: "sl-icon-biomasa",
+    icon: "icon-noun-log-pile-765200",
     href: "/proizvodi#biomasa",
     keywords: "biomasa, piljevina, građevinska građa, pilana",
   },

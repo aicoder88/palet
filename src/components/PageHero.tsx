@@ -6,9 +6,7 @@ type Props = {
   title: ReactNode;
   lede: ReactNode;
   image: { src: string; alt: string };
-  width?: "wide" | "narrow";
-  titleSize?: "lg" | "xl";
-  headerPadding?: "lg" | "md";
+  icon?: string;
   children?: ReactNode;
 };
 
@@ -17,62 +15,39 @@ export default function PageHero({
   title,
   lede,
   image,
-  width = "wide",
-  titleSize = "xl",
-  headerPadding = "lg",
+  icon,
   children,
 }: Props) {
-  const container = width === "wide" ? "max-w-7xl" : "max-w-5xl";
-  const headerPb = headerPadding === "lg" ? "pb-20" : "pb-16";
-  const stripMt = headerPadding === "lg" ? "-mt-10" : "-mt-8";
-  const h1 =
-    titleSize === "xl"
-      ? "text-5xl sm:text-6xl"
-      : "text-4xl sm:text-5xl lg:text-6xl";
-
   return (
     <>
-      <div
-        className={`bg-gradient-to-br from-[#1C3A2A] via-[#1C3A2A] to-[#132820] dark:bg-[#0A1510] pt-32 ${headerPb} relative overflow-hidden`}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, rgba(200,168,122,0.3) 0%, transparent 100%)",
-          }}
-        />
-        <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full bg-[#C8A87A]/12 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-24 w-[380px] h-[380px] rounded-full bg-[#2A5040]/40 blur-3xl pointer-events-none" />
-        <div className={`relative ${container} mx-auto px-4 sm:px-6 lg:px-8`}>
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
-            {eyebrow}
-          </span>
-          <h1
-            className={`${h1} font-bold text-white mb-5 tracking-tight text-balance`}
-          >
+      <div className="bg-canvas pt-36 pb-20 sm:pt-40 sm:pb-24 relative overflow-hidden">
+        <div className="container-narrow text-center">
+          {icon && (
+            <span
+              className={`${icon} text-[44px] text-ochre-deep inline-block mb-6`}
+              aria-hidden
+            />
+          )}
+          <span className="eyebrow">{eyebrow}</span>
+          <h1 className="mt-4 font-serif font-medium text-ink display-h1 text-balance">
             {title}
           </h1>
-          <p className="text-white/75 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            {lede}
-          </p>
-          {children}
+          <p className="lede mt-6 max-w-[60ch] mx-auto">{lede}</p>
+          {children && <div className="mt-10">{children}</div>}
         </div>
       </div>
 
-      <div
-        className={`${container} mx-auto px-4 sm:px-6 lg:px-8 ${stripMt} relative z-10`}
-      >
-        <div className="relative aspect-[16/5] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+      <div className="container-site">
+        <div className="relative aspect-[16/5] rounded-[28px] overflow-hidden border border-divider">
           <Image
             src={image.src}
             alt={image.alt}
             fill
             priority
-            sizes="(min-width: 1024px) 1024px, 100vw"
+            sizes="(min-width: 1200px) 1120px, 100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F2318]/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
         </div>
       </div>
     </>

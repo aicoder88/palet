@@ -21,6 +21,7 @@ export default function UslugePage() {
           src: "/images/hero_warehouse.png",
           alt: "Skladište i priprema paleta za ISPM-15 tretiranje",
         }}
+        icon="icon-noun-band-saw-6323354"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
@@ -149,10 +150,10 @@ export default function UslugePage() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: "Kružne pile", desc: "Precizno oštrenje svih promjera", icon: "sl-icon-saw" },
-                  { title: "Tračne pile", desc: "Sve širine i tračnice", icon: "sl-icon-saw" },
-                  { title: "Pneumatski pištolji", desc: "Popravak i servis", icon: "sl-icon-forklift" },
-                  { title: "Ostali alati", desc: "Na upit", icon: "sl-icon-lumber" },
+                  { title: "Kružne pile", desc: "Precizno oštrenje svih promjera", icon: "icon-noun-band-saw-6323354" },
+                  { title: "Tračne pile", desc: "Sve širine i tračnice", icon: "icon-noun-band-saw-6323354" },
+                  { title: "Pneumatski pištolji", desc: "Popravak i servis", icon: "icon-noun-forklift-1247" },
+                  { title: "Ostali alati", desc: "Na upit", icon: "icon-noun-lumber-2871922" },
                 ].map((item, i) => (
                   <div
                     key={item.title}
@@ -224,22 +225,22 @@ export default function UslugePage() {
                   {
                     title: "Nestandardne dimenzije",
                     desc: "Palete i ambalaža do 3000mm duljine, prilagođene širine i visine.",
-                    icon: "sl-icon-pallet-custom",
+                    icon: "icon-noun-pallet-882259c",
                   },
                   {
                     title: "Posebni materijali",
                     desc: "Hrast, ariš, topolovina ili mješane vrste prema zahtjevu.",
-                    icon: "sl-icon-lumber",
+                    icon: "icon-noun-lumber-2871922",
                   },
                   {
                     title: "Posebne obrade",
                     desc: "Impregnacija, ISPM-15 tretman, lakiranje, brušenje.",
-                    icon: "sl-icon-ispm",
+                    icon: "icon-noun-reforestation-6050469",
                   },
                   {
                     title: "Serijska i maloserijska izrada",
                     desc: "Od jednog prototipa do stalne serijske narudžbe.",
-                    icon: "sl-icon-elementi",
+                    icon: "icon-noun-wooden-beam-2871921",
                   },
                 ].map((item, i) => (
                   <div

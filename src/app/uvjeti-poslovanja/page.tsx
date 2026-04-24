@@ -22,9 +22,7 @@ export default function UvjetiPoslovanjaPage() {
           src: "/images/logistics_distribution.png",
           alt: "Isporuka paleta kupcima u cijeloj EU",
         }}
-        width="narrow"
-        titleSize="lg"
-        headerPadding="md"
+        icon="icon-noun-batten-nail-4517683"
       />
 
       <section className="py-16 sm:py-20">

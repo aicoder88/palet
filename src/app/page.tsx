@@ -2,30 +2,57 @@ import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import MarketStrip from "@/components/MarketStrip";
-import Image from "next/image";
+import IconStrip from "@/components/IconStrip";
+import FAQ from "@/components/FAQ";
 import Link from "next/link";
-import {
-  Layers,
-  Truck,
-  ShieldCheck,
-  Factory,
-  ArrowRight,
-  Clock,
-  FileCheck,
-} from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import {
   PRODUCT_TYPES,
   WHY_SLISURIC,
   CASE_STUDIES,
   COMPANY,
 } from "@/lib/constants";
+import { icons } from "@/lib/icons";
 
-const iconMap: Record<string, React.ReactNode> = {
-  layers: <Layers className="w-6 h-6" />,
-  truck: <Truck className="w-6 h-6" />,
-  shield: <ShieldCheck className="w-6 h-6" />,
-  factory: <Factory className="w-6 h-6" />,
+const WHY_ICON: Record<string, string> = {
+  factory: icons.sawBand1,
+  shield: icons.palletEpal,
+  truck: icons.forklift,
+  layers: icons.timberGate,
 };
+
+const PROOF_STATS = [
+  { number: "1,2 M", label: "paleta godišnje iz vlastite proizvodnje" },
+  { number: "52", label: "godine obiteljske pilane u Slavoniji" },
+  { number: "13", label: "EU tržišta koja redovito opslužujemo" },
+];
+
+const HOW_STEPS = [
+  {
+    step: "01",
+    icon: icons.battenNail,
+    title: "Pošaljete upit",
+    desc: "Količina, dimenzije, odredište, željeni datum. Obrazac ili telefon.",
+  },
+  {
+    step: "02",
+    icon: icons.woodPlank,
+    title: "Ponuda u 24 h",
+    desc: "Konkretna cijena, rok, kvaliteta razreda i CMR uvjeti. Nema skrivenih stavki.",
+  },
+  {
+    step: "03",
+    icon: icons.sawBand1,
+    title: "Proizvodnja i ISPM-15",
+    desc: "Vlastita pilana, sušenje, slaganje, termički tretman po potrebi.",
+  },
+  {
+    step: "04",
+    icon: icons.forklift,
+    title: "Isporuka na vaš dock",
+    desc: "Redovite rute u 13 zemalja. CMR, dokumentacija, fotografije utovara.",
+  },
+];
 
 export default function Page() {
   return (
@@ -33,27 +60,80 @@ export default function Page() {
       <Hero />
       <MarketStrip />
 
-      {/* Product Types Grid — structured for SEO with H2 + descriptive H3s */}
-      <section
-        id="proizvodi"
-        className="py-20 sm:py-24 bg-[#F8F5F0] dark:bg-[#0F1E16]"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-3">
-              Asortiman
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] tracking-tight mb-4 text-balance">
-              Drvene palete i drvena ambalaža — sve iz vlastite proizvodnje
-            </h2>
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              EPAL palete po UIC 435-2, industrijske palete po nacrtu kupca do
-              3.000 mm, polovne EUR palete, ISPM-15 termički tretman za izvoz te
-              biomasa i građevinska građa iz vlastite pilane. Jedan ugovor
-              pokriva cijeli lanac — od trupca do palete na vašem skladištu.
-            </p>
+      {/* 1 — Proof strip */}
+      <section className="section-tight bg-canvas">
+        <div className="container-site">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-divider text-center">
+            {PROOF_STATS.map((s) => (
+              <div key={s.label} className="px-6 py-8 sm:py-4">
+                <div className="font-serif text-ochre-deep display-h2">
+                  {s.number}
+                </div>
+                <p className="mt-2 text-ink-soft text-sm sm:text-[15px] max-w-[28ch] mx-auto">
+                  {s.label}
+                </p>
+              </div>
+            ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        </div>
+      </section>
+
+      {/* 2 — Made-here icon strip */}
+      <IconStrip />
+
+      {/* 3 — The offer (value stack, centered) */}
+      <section className="section bg-paper-2">
+        <div className="container-site text-center">
+          <span className="eyebrow">Što dobivate od Šlišurića</span>
+          <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[18ch] mx-auto">
+            Jedan ugovor. <em className="italic-accent">Cijeli</em> lanac.
+          </h2>
+          <p className="lede mt-6 max-w-[60ch] mx-auto">
+            Režemo, sušimo, tretiramo i dostavljamo — sve pod jednim OIB-om.
+            Bez posrednika, bez mailova u tri smjera, bez iznenađenja na
+            tovarnici.
+          </p>
+
+          <ul className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-left">
+            {WHY_SLISURIC.map((item) => (
+              <li
+                key={item.stat}
+                className="p-8 rounded-2xl bg-paper border border-divider hover:border-ochre transition-colors"
+              >
+                <span
+                  className={`${WHY_ICON[item.icon] ?? icons.palletEpal} text-4xl text-ochre-deep`}
+                  aria-hidden
+                />
+                <div className="mt-5 font-serif text-ink display-h3">
+                  {item.stat}
+                </div>
+                <div className="mt-1 eyebrow">{item.label}</div>
+                <p className="mt-3 text-[14px] leading-relaxed text-ink-soft">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-12 text-ink text-[15px] font-medium">
+            Sve iz vlastite proizvodnje. Jedan kontakt. Jedna isporuka.
+          </p>
+        </div>
+      </section>
+
+      {/* 4 — Products grid */}
+      <section id="proizvodi" className="section bg-canvas">
+        <div className="container-site text-center">
+          <span className="eyebrow">Asortiman</span>
+          <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[22ch] mx-auto">
+            Drvene palete i ambalaža — <em className="italic-accent">iz</em> vlastite pilane.
+          </h2>
+          <p className="lede mt-6 max-w-[60ch] mx-auto">
+            EPAL, industrijske, polovne, ISPM-15 tretirane, elementi i biomasa.
+            Jedan ugovor pokriva cijeli lanac — od trupca do palete na vašem skladištu.
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6 text-left">
             {PRODUCT_TYPES.map((product, i) => (
               <ProductCard
                 key={product.title}
@@ -61,7 +141,7 @@ export default function Page() {
                 description={product.description}
                 icon={
                   <span
-                    className={`sl-icon ${product.icon} text-3xl leading-none`}
+                    className={`${product.icon} text-[34px] leading-none`}
                     aria-hidden="true"
                   />
                 }
@@ -70,79 +150,54 @@ export default function Page() {
               />
             ))}
           </div>
-          <div className="mt-10">
+
+          <div className="mt-12">
             <Link
               href="/proizvodi"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1C3A2A] dark:bg-[#C8A87A] text-white dark:text-[#1C3A2A] font-semibold text-sm transition-all duration-200 hover:scale-[1.02] shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-ink text-paper font-medium text-[14px] hover:bg-sage-deep transition-colors"
             >
-              Cijeli asortiman paleta i ambalaže
+              Cijeli asortiman
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Šlišurić — four pillar grid with production image */}
-      <section className="py-20 sm:py-24 bg-white dark:bg-[#0A1510]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
-              <Image
-                src="/images/production_sawmill.png"
-                alt="Proizvodnja drvenih paleta u vlastitoj pilani Šlišurić d.o.o."
-                fill
-                sizes="(min-width: 1024px) 600px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-3">
-                Zašto Šlišurić
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] tracking-tight mb-4 text-balance">
-                Jedan dobavljač. Cijeli lanac. Tradicija od 1970-ih.
-              </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8">
-                Režemo, sušimo, slažemo, tretiramo i dostavljamo — sve pod
-                jednim OIB-om. Bez podizvođača, bez nepotrebne administracije.
-                Vaš ured za nabavu komunicira s jednim kontaktom od trupca do
-                potpisanog CMR-a.
-              </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {WHY_SLISURIC.map((item) => (
-                  <li
-                    key={item.stat}
-                    className="p-5 rounded-xl bg-[#F8F5F0] dark:bg-[#162B1E] border border-[#E2D9CC] dark:border-[#2A4035]"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1C3A2A] dark:bg-[#C8A87A] text-white dark:text-[#1C3A2A] flex items-center justify-center flex-shrink-0">
-                        {iconMap[item.icon] ?? <ShieldCheck className="w-5 h-5" />}
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-[#1C3A2A] dark:text-[#C8A87A]">
-                          {item.stat}
-                        </div>
-                        <div className="text-xs font-semibold uppercase tracking-wide text-[#1A1A14]/80 dark:text-[#EDE8E0]/80 mb-1">
-                          {item.label}
-                        </div>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+      {/* 5 — How it works (4 steps) */}
+      <section className="section bg-paper">
+        <div className="container-site text-center">
+          <span className="eyebrow">Kako radimo</span>
+          <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[20ch] mx-auto">
+            Od upita do <em className="italic-accent">tovara</em> u četiri koraka.
+          </h2>
+
+          <ol className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            {HOW_STEPS.map((s) => (
+              <li
+                key={s.step}
+                className="relative p-8 rounded-2xl bg-canvas border border-divider"
+              >
+                <span className="font-serif text-ochre-soft text-[44px] leading-none tabular">
+                  {s.step}
+                </span>
+                <span
+                  className={`${s.icon} text-[32px] text-ochre-deep block mt-5`}
+                  aria-hidden
+                />
+                <h3 className="mt-4 font-serif text-ink display-h3 text-[22px]">
+                  {s.title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
+                  {s.desc}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* ISPM-15 export strip */}
-      <section
-        id="ispm-15"
-        className="py-16 bg-[#1C3A2A] dark:bg-[#0A1510] relative overflow-hidden"
-      >
+      {/* 6 — ISPM-15 export band */}
+      <section id="ispm-15" className="section bg-sage-deep relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -151,141 +206,101 @@ export default function Page() {
             backgroundSize: "32px 32px",
           }}
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-            <div className="flex-shrink-0">
-              <div className="w-24 h-24 rounded-2xl bg-[#C8A87A] flex flex-col items-center justify-center shadow-xl">
-                <span className="text-[#1C3A2A] font-black text-xl leading-none">
-                  ISPM
-                </span>
-                <span className="text-[#1C3A2A] font-black text-3xl leading-none">
-                  15
-                </span>
-              </div>
-            </div>
-            <div className="flex-1">
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-2">
-                Izvoz van EU
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 text-balance">
-                ISPM-15 termičko tretiranje — za uvoz u UK, Švicarsku, SAD, Kinu,
-                Rusiju i ostale treće zemlje
-              </h2>
-              <p className="text-white/75 text-base leading-relaxed max-w-2xl">
-                Imamo vlastito ovlaštenje za termičko tretiranje drvenih paleta
-                prema standardu{" "}
-                <strong className="text-white">ISPM-15</strong>. Svaka paleta je
-                označena propisanim žigom, uz PDF certifikat za cariniku. Unutar
-                EU-a tretman nije obavezan, ali je preporučen za prehrambenu i
-                farmaceutsku industriju.
-              </p>
-            </div>
-            <div className="flex-shrink-0">
-              <Link
-                href="/usluge#ispm15"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#C8A87A] text-[#1C3A2A] font-bold text-sm transition-all duration-200 hover:bg-[#D4B488] hover:scale-[1.02] shadow-lg"
-              >
-                Saznajte više o usluzi
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+        <div className="relative container-narrow text-center">
+          <span
+            className={`${icons.reforestation} text-[56px] text-ochre-soft`}
+            aria-hidden
+          />
+          <div className="mt-4 text-[11px] font-medium uppercase tracking-[0.18em] text-ochre-soft">
+            Izvoz van EU
           </div>
+          <h2 className="mt-5 font-serif font-medium text-paper display-h2 text-balance">
+            ISPM-15 termičko tretiranje —{" "}
+            <em className="italic-accent-soft">za 13 tržišta</em>.
+          </h2>
+          <p className="lede mt-6 text-paper/80 max-w-[60ch] mx-auto">
+            Vlastito ovlaštenje za termičko tretiranje prema ISPM-15. Svaka
+            paleta označena propisanim žigom, PDF certifikat uz svaku pošiljku.
+            Dokumentacija za UK, CH, USA, CN, RU.
+          </p>
+          <Link
+            href="/usluge#ispm15"
+            className="mt-10 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-ochre text-paper font-medium text-[14px] hover:bg-ochre-deep transition-colors"
+          >
+            Saznajte više
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
-      {/* Case studies / "Vjeruju nam" preview — links out to /reference-kupci */}
-      <section className="py-20 sm:py-24 bg-[#F8F5F0] dark:bg-[#0F1E16]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
-            <div className="max-w-2xl">
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-3">
-                Reference
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] tracking-tight mb-4 text-balance">
-                Studije slučaja — kako opskrbljujemo proizvođače i distributere
-              </h2>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                Volumen, trajanje suradnje, konkretan problem i rješenje. Za
-                procurement urede koji traže dobavljača na kojeg se mogu pozvati
-                u internoj odluci.
-              </p>
-            </div>
+      {/* 7 — Case studies */}
+      <section className="section bg-canvas">
+        <div className="container-site text-center">
+          <span className="eyebrow">Reference</span>
+          <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[22ch] mx-auto">
+            Kako opskrbljujemo <em className="italic-accent">proizvođače</em> u EU.
+          </h2>
+          <p className="lede mt-6 max-w-[60ch] mx-auto">
+            Volumen, trajanje suradnje, konkretan problem i rješenje — za
+            procurement urede koji traže dobavljača na kojeg se mogu pozvati u
+            internoj odluci.
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {CASE_STUDIES.map((cs) => (
+              <CaseStudyCard key={cs.slug} {...cs} compact />
+            ))}
+          </div>
+
+          <div className="mt-12">
             <Link
               href="/reference-kupci"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C3A2A] dark:text-[#C8A87A] hover:underline"
+              className="inline-flex items-center gap-2 text-[14px] font-medium text-ochre-deep hover:underline underline-offset-4"
             >
               Sve studije slučaja
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {CASE_STUDIES.map((cs) => (
-              <CaseStudyCard key={cs.slug} {...cs} compact />
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Payment-terms teaser — quiet, links to /uvjeti-poslovanja */}
-      <section className="py-16 bg-white dark:bg-[#0A1510] border-y border-[#E2D9CC] dark:border-[#2A4035]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-[auto,1fr,auto] items-center gap-6">
-            <div className="w-12 h-12 rounded-xl bg-[#1C3A2A]/10 dark:bg-[#C8A87A]/15 text-[#1C3A2A] dark:text-[#C8A87A] flex items-center justify-center">
-              <FileCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
-                Kako radimo s novim kupcima
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Prva narudžba avansno → nakon nekoliko narudžbi uvodimo podjelu
-                plaćanja → za stalne partnere otvaramo net-30 i net-60 kreditne
-                odgode. Jasno i bez iznenađenja.
-              </p>
-            </div>
-            <Link
-              href="/uvjeti-poslovanja"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1C3A2A] dark:text-[#C8A87A] hover:underline"
-            >
-              Uvjeti poslovanja
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 8 — FAQ */}
+      <FAQ />
 
-      {/* RFQ CTA */}
-      <section className="py-24 bg-[#1C3A2A] dark:bg-[#0A1510] relative overflow-hidden">
+      {/* 9 — Risk-reversal + final CTA */}
+      <section className="section bg-sage-deep relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
-              "linear-gradient(135deg, rgba(200,168,122,0.4) 0%, transparent 50%)",
+              "linear-gradient(135deg, rgba(216,184,120,0.4) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#C8A87A] text-xs font-semibold uppercase tracking-widest mb-6">
+        <div className="relative container-narrow text-center">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-ochre-soft text-[11px] font-medium uppercase tracking-[0.18em]">
             <Clock className="w-3.5 h-3.5" />
-            Odgovor u 24 h · Isporuka u cijelu EU
+            Odgovor u 24 h · Jamstvo roka
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight text-balance">
-            Trebate ponudu za palete ili drvenu ambalažu?
+          <h2 className="mt-6 font-serif font-medium text-paper display-h2 text-balance max-w-[22ch] mx-auto">
+            Ako palete ne stignu na dogovoreni datum,{" "}
+            <em className="italic-accent-soft">plaćamo transport</em> sljedeće isporuke.
           </h2>
-          <p className="text-white/75 text-base sm:text-lg mb-10 max-w-xl mx-auto">
-            Ispunite upit s volumenom, dimenzijama i odredištem — odgovaramo s
-            konkretnom cijenom i rokom u roku 24 sata.
+          <p className="lede mt-6 text-paper/80 max-w-[56ch] mx-auto">
+            Bez sitnih slova. Potpisujemo u ugovoru. Tako smo sigurni u vlastitu
+            pilanu i tjedno planiranje ruta.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#C8A87A] text-[#1C3A2A] font-bold text-base transition-all duration-200 hover:bg-[#D4B488] hover:scale-[1.02] shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-ochre text-paper font-medium text-[15px] transition-colors hover:bg-ochre-deep shadow-[0_12px_40px_-12px_rgba(184,138,67,0.6)]"
             >
               Zatražite ponudu
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base transition-all duration-200 hover:bg-white/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 border border-white/20 text-paper font-medium text-[15px] hover:bg-white/20 transition-colors"
             >
               {COMPANY.phoneDisplay}
             </a>

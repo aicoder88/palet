@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -32,21 +33,18 @@ export default function Nav() {
         WebkitBackdropFilter: "saturate(180%) blur(20px)",
       }}
     >
-      <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
-        <div className="flex items-center justify-between h-[68px]">
-          {/* Brand — ochre circular mark + serif wordmark */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Šlišurić — naslovnica">
-            <div className="w-9 h-9 rounded-full bg-ochre flex items-center justify-center text-paper font-serif font-semibold text-[18px] transition-colors group-hover:bg-ochre-deep">
-              Š
-            </div>
-            <div className="flex items-baseline gap-2.5">
-              <span className="font-serif font-semibold text-[20px] tracking-[0.04em] text-ink">
-                Šlišurić
-              </span>
-              <span className="hidden sm:inline text-[11px] font-medium uppercase tracking-[0.16em] text-muted-warm">
-                pilana
-              </span>
-            </div>
+      <div className="container-site">
+        <div className="flex items-center justify-between h-[72px]">
+          {/* Brand — official Šlišurić SVG wordmark */}
+          <Link href="/" className="flex items-center group" aria-label="Šlišurić — naslovnica">
+            <Image
+              src="/logo-slisuric.svg"
+              alt="Šlišurić d.o.o."
+              width={180}
+              height={40}
+              priority
+              className="h-7 sm:h-8 w-auto dark:invert"
+            />
           </Link>
 
           {/* Desktop links */}

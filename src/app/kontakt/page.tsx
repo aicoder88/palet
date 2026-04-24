@@ -22,6 +22,7 @@ export default function KontaktPage() {
           src: "/images/drone_new_facility.png",
           alt: "Pogon Šlišurić d.o.o., Zagreb",
         }}
+        icon="icon-noun-wooden-palette-103108"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
