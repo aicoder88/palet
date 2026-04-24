@@ -20,7 +20,7 @@ export default function PageHero({
 }: Props) {
   return (
     <>
-      <div className="bg-canvas pt-36 pb-20 sm:pt-40 sm:pb-24 relative overflow-hidden">
+      <div className="bg-paper-2 pt-36 pb-20 sm:pt-40 sm:pb-24 relative overflow-hidden">
         <div className="container-narrow text-center">
           {icon && (
             <span

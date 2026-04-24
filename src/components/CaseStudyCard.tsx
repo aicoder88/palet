@@ -1,4 +1,4 @@
-import { Quote, MapPin, Package } from "lucide-react";
+import { Quote } from "lucide-react";
 
 type Props = {
   slug: string;
@@ -25,40 +25,8 @@ export default function CaseStudyCard(p: Props) {
         </span>
       )}
 
-      <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-[#C8A87A] mb-3">
-        <span>{p.industry}</span>
-        <span className="w-1 h-1 rounded-full bg-[#C8A87A]" />
-        <span className="inline-flex items-center gap-1">
-          <MapPin className="w-3 h-3" /> {p.region}
-        </span>
-      </div>
-
-      <h3 className="text-lg font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-3 leading-tight">
-        {p.companyLabel}
-      </h3>
-
-      <dl className="grid grid-cols-2 gap-3 mb-4 text-xs">
-        <div className="p-2.5 rounded-lg bg-[#F8F5F0] dark:bg-[#0F1E16]">
-          <dt className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Volumen / mj
-          </dt>
-          <dd className="text-sm font-bold text-[#1C3A2A] dark:text-[#C8A87A]">
-            {p.volumePerMonth} paleta
-          </dd>
-        </div>
-        <div className="p-2.5 rounded-lg bg-[#F8F5F0] dark:bg-[#0F1E16]">
-          <dt className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Trajanje
-          </dt>
-          <dd className="text-sm font-bold text-[#1C3A2A] dark:text-[#C8A87A]">
-            {p.tenureYears} god.
-          </dd>
-        </div>
-      </dl>
-
-      <div className="text-xs text-muted-foreground mb-4 flex items-start gap-1.5">
-        <Package className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#C8A87A]" />
-        <span>{p.palletType}</span>
+      <div className="mb-4 aspect-[3/1] w-full rounded-lg bg-[#F8F5F0] dark:bg-[#0F1E16] border border-dashed border-[#E2D9CC] dark:border-[#2A4035] flex items-center justify-center text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+        Logo
       </div>
 
       {!p.compact && p.challenge && (

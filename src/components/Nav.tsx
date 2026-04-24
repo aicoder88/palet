@@ -113,7 +113,7 @@ export default function Nav() {
               className={`flex items-center justify-between px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${
                 pathname === link.href
                   ? "bg-ochre text-paper"
-                  : "text-ink hover:bg-canvas"
+                  : "text-ink hover:bg-paper-2"
               }`}
             >
               {link.label}

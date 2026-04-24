@@ -21,17 +21,17 @@ const LABELS: Record<string, string> = {
 
 export default function IconStrip() {
   return (
-    <section className="section-tight bg-canvas border-y border-divider">
+    <section className="section-tight bg-paper-2 border-y border-divider">
       <div className="container-site text-center">
         <span className="eyebrow">Sve iz vlastite pilane</span>
         <ul className="mt-8 grid grid-cols-4 sm:grid-cols-8 gap-x-2 gap-y-8">
           {ICON_STRIP.map((key) => (
             <li key={key} className="flex flex-col items-center gap-2">
               <span
-                className={`${icons[key]} text-[32px] sm:text-[36px] text-sage transition-colors hover:text-ochre-deep`}
+                className={`${icons[key]} text-[32px] sm:text-[36px] text-ink-soft transition-colors hover:text-ochre-deep`}
                 aria-hidden
               />
-              <span className="text-[11px] uppercase tracking-[0.08em] text-muted-warm">
+              <span className="text-[11px] uppercase tracking-[0.08em] text-ink-soft">
                 {LABELS[key]}
               </span>
             </li>

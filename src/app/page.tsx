@@ -61,7 +61,7 @@ export default function Page() {
       <MarketStrip />
 
       {/* 1 — Proof strip */}
-      <section className="section-tight bg-canvas">
+      <section className="section-tight bg-paper-2">
         <div className="container-site">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-divider text-center">
             {PROOF_STATS.map((s) => (
@@ -122,7 +122,7 @@ export default function Page() {
       </section>
 
       {/* 4 — Products grid */}
-      <section id="proizvodi" className="section bg-canvas">
+      <section id="proizvodi" className="section bg-paper-2">
         <div className="container-site text-center">
           <span className="eyebrow">Asortiman</span>
           <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[22ch] mx-auto">
@@ -175,7 +175,7 @@ export default function Page() {
             {HOW_STEPS.map((s) => (
               <li
                 key={s.step}
-                className="relative p-8 rounded-2xl bg-canvas border border-divider"
+                className="relative p-8 rounded-2xl bg-paper-2 border border-divider"
               >
                 <span className="font-serif text-ochre-soft text-[44px] leading-none tabular">
                   {s.step}
@@ -234,7 +234,7 @@ export default function Page() {
       </section>
 
       {/* 7 — Case studies */}
-      <section className="section bg-canvas">
+      <section className="section bg-paper-2">
         <div className="container-site text-center">
           <span className="eyebrow">Reference</span>
           <h2 className="mt-4 font-serif font-medium text-ink display-h2 text-balance max-w-[22ch] mx-auto">

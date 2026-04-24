@@ -17,7 +17,7 @@ const TRUST_BADGES = [
 export default function Hero() {
   return (
     <section
-      className="relative bg-canvas overflow-hidden"
+      className="relative bg-paper-2 overflow-hidden"
       aria-label="Šlišurić — drvene palete za proizvođače i distributere"
     >
       <div className="relative container-site pt-36 pb-20 sm:pt-40 sm:pb-24 text-center">
