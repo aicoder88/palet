@@ -141,7 +141,7 @@ export default function Page() {
                 description={product.description}
                 icon={
                   <span
-                    className={`${product.icon} text-[34px] leading-none`}
+                    className={`${product.icon} text-[28px] leading-none inline-flex items-center justify-center`}
                     aria-hidden="true"
                   />
                 }
@@ -212,16 +212,16 @@ export default function Page() {
             aria-hidden
           />
           <div className="mt-4 text-[11px] font-medium uppercase tracking-[0.18em] text-ochre-soft">
-            Izvoz van EU
+            Certifikacija za međunarodni transport
           </div>
           <h2 className="mt-5 font-serif font-medium text-paper display-h2 text-balance">
             ISPM-15 termičko tretiranje —{" "}
-            <em className="italic-accent-soft">za 13 tržišta</em>.
+            <em className="italic-accent-soft">uz svaku pošiljku</em>.
           </h2>
-          <p className="lede mt-6 text-paper/80 max-w-[60ch] mx-auto">
+          <p className="lede mt-6 max-w-[60ch] mx-auto" style={{ color: "rgba(245,237,216,0.92)" }}>
             Vlastito ovlaštenje za termičko tretiranje prema ISPM-15. Svaka
-            paleta označena propisanim žigom, PDF certifikat uz svaku pošiljku.
-            Dokumentacija za UK, CH, USA, CN, RU.
+            paleta označena propisanim HT žigom. PDF certifikat uz svaku
+            pošiljku — spreman za carinsku dokumentaciju.
           </p>
           <Link
             href="/usluge#ispm15"
@@ -285,7 +285,7 @@ export default function Page() {
             Ako palete ne stignu na dogovoreni datum,{" "}
             <em className="italic-accent-soft">plaćamo transport</em> sljedeće isporuke.
           </h2>
-          <p className="lede mt-6 text-paper/80 max-w-[56ch] mx-auto">
+          <p className="lede mt-6 max-w-[56ch] mx-auto" style={{ color: "rgba(245,237,216,0.92)" }}>
             Bez sitnih slova. Potpisujemo u ugovoru. Tako smo sigurni u vlastitu
             pilanu i tjedno planiranje ruta.
           </p>

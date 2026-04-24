@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Kako funkcionira ISPM-15 i trebam li ga?",
-    a: "ISPM-15 je obavezan za izvoz drvene ambalaže van EU (UK, CH, USA, CN, RU, itd.). Palete se termički tretiraju na 56 °C tijekom 30 minuta i označavaju međunarodnim žigom. Imamo vlastito ovlaštenje — certifikat stiže uz svaku pošiljku. Unutar EU-a tretman nije obavezan.",
+    a: "ISPM-15 je međunarodni fitosanitarni standard za drvenu ambalažu u međunarodnom transportu. Palete se termički tretiraju na 56 °C tijekom 30 minuta i označavaju propisanim HT žigom. Imamo vlastito ovlaštenje — certifikat stiže uz svaku pošiljku. Unutar EU-a tretman nije obavezan.",
   },
   {
     q: "Kako formirate cijenu?",

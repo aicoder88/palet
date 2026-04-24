@@ -25,8 +25,11 @@ export default function CaseStudyCard(p: Props) {
         </span>
       )}
 
-      <div className="mb-4 aspect-[3/1] w-full rounded-lg bg-[#F8F5F0] dark:bg-[#0F1E16] border border-dashed border-[#E2D9CC] dark:border-[#2A4035] flex items-center justify-center text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-        Logo
+      <div className="mb-4 aspect-[3/1] w-full rounded-lg bg-[#F0EBE2] dark:bg-[#0F1E16] border border-[#E2D9CC] dark:border-[#2A4035] flex flex-col items-center justify-center gap-1">
+        <span className="text-[11px] font-semibold uppercase tracking-widest text-[#1C3A2A]/40 dark:text-[#C8A87A]/40">
+          {p.companyLabel}
+        </span>
+        <span className="text-[10px] text-muted-foreground">{p.industry} · {p.region}</span>
       </div>
 
       {!p.compact && p.challenge && (
