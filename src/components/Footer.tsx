@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Download } from "lucide-react";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n/I18nProvider";
 
 const CERTS = [
   {
@@ -25,6 +28,7 @@ const CERTS = [
 ];
 
 export default function Footer() {
+  const t = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -86,7 +90,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm text-white/70 hover:text-white transition-colors"
                   >
-                    {link.label}
+                    {t.nav[link.labelKey]}
                   </Link>
                 </li>
               ))}

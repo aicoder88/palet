@@ -38,13 +38,15 @@ export const COMPANY = {
   marketsLabel: "Cijela EU + regija (HR · SI · AT · DE · IT · BA · RS · HU · CZ · SK · PL)",
 };
 
+// `labelKey` resolves against dictionary `nav.*` — labels themselves live in
+// src/lib/i18n/dictionaries/*. Route paths stay Croatian (SEO + existing links).
 export const NAV_LINKS = [
-  { label: "Naslovnica", href: "/" },
-  { label: "Proizvodi", href: "/proizvodi" },
-  { label: "Usluge", href: "/usluge" },
-  { label: "Reference", href: "/reference-kupci" },
-  { label: "Kontakt", href: "/kontakt" },
-];
+  { labelKey: "home", href: "/" },
+  { labelKey: "products", href: "/proizvodi" },
+  { labelKey: "services", href: "/usluge" },
+  { labelKey: "references", href: "/reference-kupci" },
+  { labelKey: "contact", href: "/kontakt" },
+] as const;
 
 // Peer manufacturer/distributor logo row — "Vjeruju nam"
 // Names are placeholders until written permissions are secured.

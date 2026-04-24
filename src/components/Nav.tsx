@@ -7,12 +7,15 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { NAV_LINKS } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n/I18nProvider";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const t = useTranslation();
 
   useEffect(() => setMounted(true), []);
   useEffect(() => setMobileOpen(false), [pathname]);
@@ -36,7 +39,7 @@ export default function Nav() {
       <div className="container-site">
         <div className="flex items-center justify-between h-[72px]">
           {/* Brand — official Šlišurić SVG wordmark */}
-          <Link href="/" className="flex items-center group" aria-label="Šlišurić — naslovnica">
+          <Link href="/" className="flex items-center group" aria-label={t.nav.brandAria}>
             <Image
               src="/logo-slisuric.svg"
               alt="Šlišurić d.o.o."
@@ -59,12 +62,14 @@ export default function Nav() {
                     : "text-ink-soft hover:text-ochre-deep"
                 }`}
               >
-                {link.label}
+                {t.nav[link.labelKey]}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <LanguageSwitcher />
+
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -81,16 +86,16 @@ export default function Nav() {
 
             <Link
               href="/kontakt"
-              className="hidden lg:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-ink text-paper text-[13px] font-medium tracking-[-0.005em] hover:bg-sage-deep transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 ml-1 px-5 py-2.5 rounded-full bg-ink text-paper text-[13px] font-medium tracking-[-0.005em] hover:bg-sage-deep transition-colors"
             >
-              Zatražite ponudu
+              {t.nav.cta}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
 
             <button
               className="lg:hidden p-2 rounded-full text-ink hover:text-ochre-deep transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Otvori izbornik"
+              aria-label={t.nav.openMenu}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -116,7 +121,7 @@ export default function Nav() {
                   : "text-ink hover:bg-paper-2"
               }`}
             >
-              {link.label}
+              {t.nav[link.labelKey]}
               <ArrowRight className="w-4 h-4 opacity-50" />
             </Link>
           ))}
@@ -125,7 +130,7 @@ export default function Nav() {
               href="/kontakt"
               className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-ink text-paper text-sm font-medium"
             >
-              Zatražite ponudu
+              {t.nav.cta}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

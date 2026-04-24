@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "../styles/icons.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { COMPANY, SEO_KEYWORDS } from "@/lib/constants";
@@ -179,15 +180,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-ink focus:text-paper"
-          >
-            Preskoči na sadržaj
-          </a>
-          <Nav />
-          <main id="main">{children}</main>
-          <Footer />
+          <I18nProvider>
+            <a
+              href="#main"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-ink focus:text-paper"
+            >
+              Preskoči na sadržaj
+            </a>
+            <Nav />
+            <main id="main">{children}</main>
+            <Footer />
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
