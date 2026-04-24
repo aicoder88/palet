@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Globe, Wrench, Settings } from "lucide-react";
-import PlaceholderImage from "@/components/PlaceholderImage";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Usluge — Šlišurić d.o.o.",
@@ -12,37 +13,15 @@ export const metadata: Metadata = {
 export default function UslugePage() {
   return (
     <div className="bg-[#F8F5F0] dark:bg-[#0F1E16] min-h-screen">
-      {/* Header */}
-      <div className="bg-[#1C3A2A] dark:bg-[#0A1510] pt-32 pb-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, rgba(200,168,122,0.3) 0%, transparent 100%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
-            Što nudimo
-          </span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-5 tracking-tight">
-            Naše Usluge
-          </h1>
-          <p className="text-white/75 text-xl max-w-2xl leading-relaxed">
-            Više od samih paleta — nudimo i certificirano termičko tretiranje,
-            brušenje alata i izradu ambalaže po narudžbi.
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
-        <PlaceholderImage
-          variant="ispm"
-          label="ISPM-15 komora — fotografija uskoro"
-          aspect="aspect-[16/5]"
-          className="shadow-2xl"
-        />
-      </div>
+      <PageHero
+        eyebrow="Što nudimo"
+        title="Naše Usluge"
+        lede="Više od samih paleta — nudimo i certificirano termičko tretiranje, brušenje alata i izradu ambalaže po narudžbi."
+        image={{
+          src: "/images/hero_warehouse.png",
+          alt: "Skladište i priprema paleta za ISPM-15 tretiranje",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
         {/* ISPM-15 */}
@@ -170,19 +149,27 @@ export default function UslugePage() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: "Kružne pile", desc: "Precizno oštrenje svih promjera" },
-                  { title: "Tračne pile", desc: "Sve širine i tračnice" },
-                  { title: "Pneumatski pištolji", desc: "Popravak i servis" },
-                  { title: "Ostali alati", desc: "Na upit" },
-                ].map((item) => (
+                  { title: "Kružne pile", desc: "Precizno oštrenje svih promjera", icon: "sl-icon-saw" },
+                  { title: "Tračne pile", desc: "Sve širine i tračnice", icon: "sl-icon-saw" },
+                  { title: "Pneumatski pištolji", desc: "Popravak i servis", icon: "sl-icon-forklift" },
+                  { title: "Ostali alati", desc: "Na upit", icon: "sl-icon-lumber" },
+                ].map((item, i) => (
                   <div
                     key={item.title}
-                    className="p-4 rounded-xl bg-white dark:bg-[#162B1E] border border-[#E2D9CC] dark:border-[#2A4035]"
+                    className="rounded-xl bg-white dark:bg-[#162B1E] border border-[#E2D9CC] dark:border-[#2A4035] overflow-hidden"
                   >
-                    <div className="font-semibold text-sm text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
-                      {item.title}
+                    <ImagePlaceholder
+                      icon={item.icon}
+                      aspect="landscape"
+                      tone={i % 2 === 0 ? "ochre" : "sage"}
+                      className="rounded-none border-0 border-b border-[#E2D9CC] dark:border-[#2A4035]"
+                    />
+                    <div className="p-4">
+                      <div className="font-semibold text-sm text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
+                        {item.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">{item.desc}</div>
                     </div>
-                    <div className="text-xs text-muted-foreground">{item.desc}</div>
                   </div>
                 ))}
               </div>
@@ -232,33 +219,45 @@ export default function UslugePage() {
                 prilagodljiva je vašim dimenzijama, nosivostima i materijalima. Donosite
                 nacrt, mi donosimo rješenje.
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
                   {
                     title: "Nestandardne dimenzije",
                     desc: "Palete i ambalaža do 3000mm duljine, prilagođene širine i visine.",
+                    icon: "sl-icon-pallet-custom",
                   },
                   {
                     title: "Posebni materijali",
                     desc: "Hrast, ariš, topolovina ili mješane vrste prema zahtjevu.",
+                    icon: "sl-icon-lumber",
                   },
                   {
                     title: "Posebne obrade",
                     desc: "Impregnacija, ISPM-15 tretman, lakiranje, brušenje.",
+                    icon: "sl-icon-ispm",
                   },
                   {
                     title: "Serijska i maloserijska izrada",
                     desc: "Od jednog prototipa do stalne serijske narudžbe.",
+                    icon: "sl-icon-elementi",
                   },
-                ].map((item) => (
+                ].map((item, i) => (
                   <div
                     key={item.title}
-                    className="p-4 rounded-xl bg-white dark:bg-[#162B1E] border border-[#E2D9CC] dark:border-[#2A4035]"
+                    className="rounded-xl bg-white dark:bg-[#162B1E] border border-[#E2D9CC] dark:border-[#2A4035] overflow-hidden"
                   >
-                    <div className="font-semibold text-sm text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
-                      {item.title}
+                    <ImagePlaceholder
+                      icon={item.icon}
+                      aspect="landscape"
+                      tone={i % 2 === 0 ? "ochre" : "sage"}
+                      className="rounded-none border-0 border-b border-[#E2D9CC] dark:border-[#2A4035]"
+                    />
+                    <div className="p-4">
+                      <div className="font-semibold text-sm text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
+                        {item.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">{item.desc}</div>
                     </div>
-                    <div className="text-xs text-muted-foreground">{item.desc}</div>
                   </div>
                 ))}
               </div>

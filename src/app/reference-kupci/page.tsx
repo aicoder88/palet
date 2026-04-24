@@ -24,13 +24,16 @@ export default function ReferenceKupciPage() {
       {/* Hero */}
       <header className="bg-[#1C3A2A] dark:bg-[#0A1510] pt-32 pb-20 relative overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=2000&q=70"
+          src="/images/logistics_distribution.png"
           alt="Skladište s paletama spremnima za distribuciju"
           fill
+          priority
           sizes="100vw"
-          className="object-cover opacity-20"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F2318]/90 to-[#1C3A2A]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1510]/90 via-[#0F2318]/75 to-[#0F2318]/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1510]/60 via-transparent to-transparent" />
+        <div className="absolute -top-24 -right-24 w-[460px] h-[460px] rounded-full bg-[#C8A87A]/12 blur-3xl pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
             Reference i studije slučaja

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Clock, Phone, Navigation, ArrowRight } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
 
@@ -41,26 +42,14 @@ export default function LokacijaPage() {
           {/* Stari pogon */}
           <div className="group">
             <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm hover:shadow-md transition-all duration-200">
-              {/* Drone image placeholder */}
-              <div className="relative h-56 bg-gradient-to-br from-[#1C3A2A] to-[#2A5040] flex items-center justify-center overflow-hidden">
-                {/* Decorative pattern */}
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 1px 1px, rgba(200,168,122,0.6) 1px, transparent 0)",
-                    backgroundSize: "24px 24px",
-                  }}
+              {/* Drone image */}
+              <div className="relative h-56 w-full overflow-hidden">
+                <Image
+                  src="/images/drone_old_facility.png"
+                  alt="Stari pogon — Zagreb"
+                  fill
+                  className="object-cover"
                 />
-                <div className="relative flex flex-col items-center text-center px-6">
-                  <div className="w-16 h-16 rounded-full bg-[#C8A87A]/20 border-2 border-[#C8A87A]/40 flex items-center justify-center mb-4">
-                    <MapPin className="w-8 h-8 text-[#C8A87A]" />
-                  </div>
-                  <span className="text-white/60 text-sm">Drone snimka — uskoro</span>
-                  <span className="text-white/40 text-xs mt-1">
-                    Stari pogon — Zagreb
-                  </span>
-                </div>
                 {/* Label */}
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#C8A87A] text-[#1C3A2A] text-xs font-bold uppercase tracking-wide">
                   Stari pogon
@@ -104,25 +93,14 @@ export default function LokacijaPage() {
           {/* Novi pogon */}
           <div className="group">
             <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm hover:shadow-md transition-all duration-200">
-              {/* Drone image placeholder */}
-              <div className="relative h-56 bg-gradient-to-br from-[#0A1510] to-[#1C3A2A] flex items-center justify-center overflow-hidden">
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 1px 1px, rgba(200,168,122,0.6) 1px, transparent 0)",
-                    backgroundSize: "24px 24px",
-                  }}
+              {/* Drone image */}
+              <div className="relative h-56 w-full overflow-hidden">
+                <Image
+                  src="/images/drone_new_facility.png"
+                  alt="Novi pogon — Zagreb"
+                  fill
+                  className="object-cover"
                 />
-                <div className="relative flex flex-col items-center text-center px-6">
-                  <div className="w-16 h-16 rounded-full bg-[#C8A87A]/20 border-2 border-[#C8A87A]/40 flex items-center justify-center mb-4">
-                    <MapPin className="w-8 h-8 text-[#C8A87A]" />
-                  </div>
-                  <span className="text-white/60 text-sm">Drone snimka — uskoro</span>
-                  <span className="text-white/40 text-xs mt-1">
-                    Novi pogon — Zagreb
-                  </span>
-                </div>
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-wide">
                   Novi pogon
                 </div>

@@ -88,7 +88,7 @@ export default function Page() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
               <Image
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=70"
+                src="/images/production_sawmill.png"
                 alt="Proizvodnja drvenih paleta u vlastitoj pilani Šlišurić d.o.o."
                 fill
                 sizes="(min-width: 1024px) 600px, 100vw"

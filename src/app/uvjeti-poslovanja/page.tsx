@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PAYMENT_LADDER, COMPANY } from "@/lib/constants";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import PlaceholderImage from "@/components/PlaceholderImage";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Uvjeti poslovanja — plaćanje, narudžbe, isporuka",
@@ -14,30 +14,18 @@ export const metadata: Metadata = {
 export default function UvjetiPoslovanjaPage() {
   return (
     <div className="bg-[#F8F5F0] dark:bg-[#0F1E16] min-h-screen">
-      <header className="bg-[#1C3A2A] dark:bg-[#0A1510] pt-32 pb-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
-            Uvjeti poslovanja
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 tracking-tight text-balance">
-            Kako radimo s novim i stalnim kupcima
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl leading-relaxed">
-            Transparentno. Bez iznenađenja na računu. Plaćanje se mijenja kako
-            raste povjerenje — od avansa prve narudžbe do net-60 kreditnih
-            odgoda za ugovorne partnere.
-          </p>
-        </div>
-      </header>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <PlaceholderImage
-          variant="delivery"
-          label="Isporuka u cijelu EU — fotografija uskoro"
-          aspect="aspect-[16/5]"
-          className="shadow-2xl"
-        />
-      </div>
+      <PageHero
+        eyebrow="Uvjeti poslovanja"
+        title="Kako radimo s novim i stalnim kupcima"
+        lede="Transparentno. Bez iznenađenja na računu. Plaćanje se mijenja kako raste povjerenje — od avansa prve narudžbe do net-60 kreditnih odgoda za ugovorne partnere."
+        image={{
+          src: "/images/logistics_distribution.png",
+          alt: "Isporuka paleta kupcima u cijeloj EU",
+        }}
+        width="narrow"
+        titleSize="lg"
+        headerPadding="md"
+      />
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

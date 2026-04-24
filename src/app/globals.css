@@ -2,51 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Design tokens — see /DESIGN.md
+  Cream canvas · Ochre action · Sage emphasis · Warm ink · Fraunces + Inter
+*/
+
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 60 8% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 60 8% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 60 8% 10%;
-    --primary: 150 32% 17%;
-    --primary-foreground: 36 33% 97%;
-    --secondary: 36 33% 93%;
-    --secondary-foreground: 150 32% 17%;
-    --muted: 36 20% 92%;
-    --muted-foreground: 60 5% 40%;
-    --accent: 33 45% 63%;
-    --accent-foreground: 150 32% 17%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 33 25% 86%;
-    --input: 33 25% 86%;
-    --ring: 150 32% 17%;
-    --radius: 0.75rem;
+    /* Brand palette (hex, exposed as vars for direct use) */
+    --canvas:      #EDE3CC;
+    --paper:       #F5EDD8;
+    --paper-2:     #FAF4E4;
+    --divider:     #D4C9AE;
+    --ochre:       #B88A43;
+    --ochre-deep:  #8F6A30;
+    --ochre-soft:  #D8B878;
+    --ochre-tint:  #E8D8B0;
+    --sage:        #5F6B4E;
+    --sage-deep:   #434D39;
+    --sage-soft:   #8C9777;
+    --ink:         #2B2418;
+    --ink-soft:    #4A3E2A;
+    --muted-warm:  #8B7F68;
+
+    /* shadcn/ui HSL tokens — aligned to brand palette */
+    --background:            40 44% 86%;   /* canvas */
+    --foreground:            36 30% 13%;   /* ink */
+    --card:                  42 59% 90%;   /* paper */
+    --card-foreground:       36 30% 13%;
+    --popover:               42 59% 90%;
+    --popover-foreground:    36 30% 13%;
+    --primary:               33 47% 49%;   /* ochre */
+    --primary-foreground:    42 59% 90%;
+    --secondary:             85 16% 36%;   /* sage */
+    --secondary-foreground:  42 59% 90%;
+    --muted:                 42 35% 82%;
+    --muted-foreground:      36 14% 47%;   /* muted-warm */
+    --accent:                33 47% 49%;
+    --accent-foreground:     42 59% 90%;
+    --destructive:           12 48% 43%;
+    --destructive-foreground: 42 59% 90%;
+    --border:                39 28% 76%;   /* divider */
+    --input:                 39 28% 76%;
+    --ring:                  33 47% 49%;
+    --radius:                0.5rem;
   }
 
   .dark {
-    --background: 150 32% 9%;
-    --foreground: 36 20% 90%;
-    --card: 150 30% 13%;
-    --card-foreground: 36 20% 90%;
-    --popover: 150 30% 13%;
-    --popover-foreground: 36 20% 90%;
-    --primary: 36 45% 63%;
-    --primary-foreground: 150 32% 9%;
-    --secondary: 150 25% 16%;
-    --secondary-foreground: 36 20% 90%;
-    --muted: 150 20% 16%;
-    --muted-foreground: 36 10% 60%;
-    --accent: 36 45% 63%;
-    --accent-foreground: 150 32% 9%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 150 20% 22%;
-    --input: 150 20% 22%;
-    --ring: 36 45% 63%;
-    --radius: 0.75rem;
+    --canvas:      #1E1A12;
+    --paper:       #2B2418;
+    --paper-2:     #16130D;
+    --divider:     #3A2F1F;
+    --ochre:       #D8A45C;
+    --ochre-deep:  #B88A43;
+    --ochre-soft:  #E8C285;
+    --ochre-tint:  #3A2F1F;
+    --sage:        #8C9777;
+    --sage-deep:   #5F6B4E;
+    --sage-soft:   #A8B594;
+    --ink:         #F5EDD8;
+    --ink-soft:    #D4C9AE;
+    --muted-warm:  #A89A80;
+
+    --background:            36 26% 9%;
+    --foreground:            42 59% 90%;
+    --card:                  36 30% 13%;
+    --card-foreground:       42 59% 90%;
+    --popover:               36 30% 13%;
+    --popover-foreground:    42 59% 90%;
+    --primary:               33 60% 60%;
+    --primary-foreground:    36 26% 9%;
+    --secondary:             85 13% 53%;
+    --secondary-foreground:  36 26% 9%;
+    --muted:                 36 20% 20%;
+    --muted-foreground:      36 18% 65%;
+    --accent:                33 60% 60%;
+    --accent-foreground:     36 26% 9%;
+    --destructive:           12 55% 45%;
+    --destructive-foreground: 42 59% 90%;
+    --border:                36 24% 17%;
+    --input:                 36 24% 17%;
+    --ring:                  33 60% 60%;
   }
 }
 
@@ -55,11 +91,24 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11", "rlig" 1, "calt" 1;
+    letter-spacing: -0.011em;
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Display serif — italic stays rare; one word per headline (see DESIGN.md) */
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.03em;
+  }
+  h4, h5, h6 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -67,6 +116,24 @@
   .text-balance {
     text-wrap: balance;
   }
+  .font-serif {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+  .font-sans {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+  /* Italic accent — ochre-deep, used sparingly */
+  .italic-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ochre-deep);
+  }
+  .italic-accent-soft {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ochre-soft);
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
 }
 
 /* Ticker animation */
@@ -74,33 +141,12 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 .ticker-track {
   animation: ticker 30s linear infinite;
   will-change: transform;
 }
-
 .ticker-track:hover {
   animation-play-state: paused;
-}
-
-/* Pulse green animation for CTA */
-@keyframes pulse-green {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(28, 58, 42, 0.5); }
-  50% { box-shadow: 0 0 0 10px rgba(28, 58, 42, 0); }
-}
-
-.pulse-green {
-  animation: pulse-green 2s ease-in-out infinite;
-}
-
-.dark .pulse-green {
-  animation: pulse-green-tan 2s ease-in-out infinite;
-}
-
-@keyframes pulse-green-tan {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 168, 122, 0.5); }
-  50% { box-shadow: 0 0 0 10px rgba(200, 168, 122, 0); }
 }
 
 /* Float animation for badge */
@@ -108,27 +154,27 @@
   0%, 100% { transform: rotate(-2deg) translateY(0px); }
   50% { transform: rotate(-2deg) translateY(-5px); }
 }
-
 .float-bob {
   animation: float-bob 3s ease-in-out infinite;
   display: inline-block;
 }
 
-/* Underline animation for nav links */
-.nav-link {
-  position: relative;
-}
+/* Nav link underline (ochre) */
+.nav-link { position: relative; }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   width: 0;
-  height: 2px;
-  background-color: #C8A87A;
+  height: 1px;
+  background-color: var(--ochre);
   transition: width 0.25s ease;
 }
 .nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
+.nav-link.active::after { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .float-bob { animation: none; }
+  * { transition-duration: 0.001ms !important; }
 }

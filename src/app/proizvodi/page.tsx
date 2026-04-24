@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import PlaceholderImage from "@/components/PlaceholderImage";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import PageHero from "@/components/PageHero";
+
+type Product = {
+  name: string;
+  icon: string;
+  desc: string;
+  specs: string[];
+  highlight?: boolean;
+};
 
 export const metadata: Metadata = {
   title: "Proizvodi — Šlišurić d.o.o.",
@@ -9,7 +18,14 @@ export const metadata: Metadata = {
     "Euro EPAL palete, industrijske palete, polovne palete, drveni elementi, biomasa i građevinska drvena građa. Vlastita proizvodnja, Zagreb.",
 };
 
-const productSections = [
+const productSections: {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  accentColor: string;
+  products: Product[];
+}[] = [
   {
     id: "epal",
     title: "Drvene Palete",
@@ -20,21 +36,25 @@ const productSections = [
     products: [
       {
         name: "Euro palete (EPAL)",
+        icon: "sl-icon-epal",
         desc: "Standardne 1200×800mm palete prema europskim normama. Svaka paleta nosi EPAL žig i certifikat. Prihvaćene diljem Europe, idealne za sve industrije i logistiku.",
         specs: ["Dimenzije: 1200 × 800 mm", "Nosivost: 1500 kg (statički)", "Certifikat: EPAL / EUR1", "Materijal: jelovina / smrekovica"],
       },
       {
         name: "Industrijske palete na zahtjev (16 tipova)",
+        icon: "sl-icon-pallet-custom",
         desc: "Širi asortiman od 16 tipova industrijskih paleta za specifične potrebe. Nestandardne dimenzije, pojačana nosivost, posebna obrada.",
         specs: ["16 standardnih tipova", "Dimenzije prema narudžbi", "Nosivost do 5000 kg", "Mogućnost impregancije"],
       },
       {
         name: "Palete do 3000mm (na upit)",
+        icon: "sl-icon-pallet-custom",
         desc: "Palete velikih dimenzija za nestandardne industrijske primjene. Idealne za strojeve, metalne konstrukcije i tešku robu.",
         specs: ["Duljina do 3000 mm", "Potpuno prilagodljive", "Pojačana konstrukcija", "Rok isporuke na upit"],
       },
       {
         name: "Drveni sanduci, poklopci i okviri",
+        icon: "sl-icon-elementi",
         desc: "Piljenje i izrada drvene ambalaže prema zahtjevima kupca. Sanduci za strojeve, poklopci za gajbe, okviri za palete.",
         specs: ["Dimenzije po narudžbi", "Različite debljine dasaka", "Mogućnost ISPM-15 tretmana", "Brza izrada"],
       },
@@ -50,11 +70,13 @@ const productSections = [
     products: [
       {
         name: "Prodaja polovnih paleta",
+        icon: "sl-icon-pallet-used",
         desc: "Razni tipovi ispravnih polovnih paleta po povoljnim cijenama. Pregledane i razvrstane po kvaliteti — A, AB i B klasa.",
         specs: ["Euro palete A klase", "Razne dimenzije", "Razvrstano po kvaliteti", "Mogućnost popravka"],
       },
       {
         name: "Otkup polovnih i novih paleta",
+        icon: "sl-icon-forklift",
         desc: "Preuzimamo viškove vaših paleta — i polovne i nekorištene. Brzi obračun, preuzimanje na lokaciji, gotovinska ili bankovna uplata.",
         specs: ["Preuzimamo u Vašem skladištu", "Brzi obračun", "Sve tipove paleta", "Transparentno vrednovanje"],
       },
@@ -70,21 +92,25 @@ const productSections = [
     products: [
       {
         name: "Euro elementi za palete",
+        icon: "sl-icon-elementi",
         desc: "Standardne letvice, noge i daske za popravak EPAL paleta prema propisanim dimenzijama. Suha građa, bez grešaka.",
         specs: ["Prema EPAL specifikacijama", "Suha građa (ispod 20% vlage)", "Jelovina / smrekovica", "Brza isporuka"],
       },
       {
         name: "Elementi na zahtjev kupca",
+        icon: "sl-icon-plank",
         desc: "Letvice, daske i noge nestandardnih dimenzija prema vašem nacrtu. Pilamo na mjeru u vlastitoj pilani.",
         specs: ["Dimenzije po narudžbi", "Različite drvenaste vrste", "Rezanje i blanjanje", "Rok prema dogovoru"],
       },
       {
         name: "Drvene kocke za palete",
+        icon: "sl-icon-elementi",
         desc: "Drvene kocke za izradu blok-paleta. Dostupne u standardnim i nestandardnim dimenzijama.",
         specs: ["Standardne: 78×78×78mm", "Nestandardne dimenzije", "Jelovina / topolovina", "Mogućnost bušenja"],
       },
       {
         name: "Poklopci za gajbe",
+        icon: "sl-icon-plank",
         desc: "Drveni poklopci za drvene gajbe i kontejnere. Prilagodljivi po dimenzijama i debljini.",
         specs: ["Dimenzije po narudžbi", "Različite debljine", "Brušena površina", "Mogućnost logotipa"],
       },
@@ -100,22 +126,26 @@ const productSections = [
     products: [
       {
         name: "Piljevina (EA kanadska topola 100%)",
+        icon: "sl-icon-biomasa",
         desc: "Fina piljevina isključivo od EA (Eastern American) kanadske topole. Bez kore, bez otpadaka, bez kemijskih sredstava. Idealna za produkciju briketa i peleta.",
         specs: ["100% EA kanadska topola", "Bez kore i kemikalija", "Suha (vlaga ispod 12%)", "Idealna za briket"],
         highlight: true,
       },
       {
         name: "Kora",
+        icon: "sl-icon-leaf",
         desc: "Drvna kora kao biomasa za ogrjev ili kompostiranje. Isporučujemo rasuto ili u vrećama.",
         specs: ["Rasuto ili u vrećama", "Različite drvne vrste", "Za ogrjev ili kompost", "Velika količina"],
       },
       {
         name: "Drvni okrajci sitni — za ogrjev / sječku",
+        icon: "sl-icon-biomasa",
         desc: "Sitni drvni okrajci pogodni za direktno loženje ili sječku. Niski trošak, visoka kalorična vrijednost.",
         specs: ["Za direktno loženje", "Za sječku / čips", "Mješane drvne vrste", "Veće količine"],
       },
       {
         name: "Drvni okrajci dugački — za ogrjev",
+        icon: "sl-icon-log-pile",
         desc: "Duži komadi drvnih okrajaka — za peći, kamine i industrijske kotlove.",
         specs: ["Duljina 20–50 cm", "Za kamine i peći", "Suho drvo", "Veleprodaja"],
       },
@@ -131,31 +161,37 @@ const productSections = [
     products: [
       {
         name: "Krovna drvena građa (prema narudžbi)",
+        icon: "sl-icon-lumber",
         desc: "Krovne grede, rafteri, podrožnice i ostala konstruktivna krovišna građa. HR podrijetlo, sušena, certificirana.",
         specs: ["Jela / Smreka / Ariš / Hrast", "HR podrijetlo", "Sušena i certificirana", "Prema projektu"],
       },
       {
         name: "Lamperija i brodski pod",
+        icon: "sl-icon-plank",
         desc: "Unutarnja obloga zidova i stropova. Profilirane daske u različitim dimenzijama i drvnim vrstama.",
         specs: ["Jela / Smreka / Hrast", "Profilirani spojevi", "Brušena površina", "Za suhe prostore"],
       },
       {
         name: "Fosna (Hrast / Jela / Ariš / Smreka)",
+        icon: "sl-icon-plank",
         desc: "Nebrušena ili blanjana fosna za podove, terase i konstruktivne primjene.",
         specs: ["Debljina 24–50 mm", "Različite širine", "Prema narudžbi", "HR drvne vrste"],
       },
       {
         name: "Krovna letva i štafla",
+        icon: "sl-icon-lumber",
         desc: "Standardne krovne letvice i štafle za pričvršćivanje crijepa i ploča. Suha, ravna, bez grešaka.",
         specs: ["30×50 / 40×60 / 50×75 mm", "Standardne duljine", "Suha jelovina", "Velika zaliha"],
       },
       {
         name: "Masivni parket 14–21mm",
+        icon: "sl-icon-plank",
         desc: "Masivni drvni parket u različitim drvnim vrstama i dimenzijama. Za unutarnje uređenje.",
         specs: ["Debljina 14–21 mm", "Hrast / Jela / Ariš", "Brušen i lakiran", "Na upit"],
       },
       {
         name: "Balkonske ograde",
+        icon: "sl-icon-lumber",
         desc: "Drvene balkonske ograde i rukohvati prema narudžbi. Tretirano drvo za vanjske uvjete.",
         specs: ["Dimenzije po narudžbi", "Impregnirano drvo", "Hrast / Ariš", "Montaža moguća"],
       },
@@ -166,49 +202,27 @@ const productSections = [
 export default function ProizvodiPage() {
   return (
     <div className="bg-[#F8F5F0] dark:bg-[#0F1E16] min-h-screen">
-      {/* Header */}
-      <div className="bg-[#1C3A2A] dark:bg-[#0A1510] pt-32 pb-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, rgba(200,168,122,0.3) 0%, transparent 100%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
-            Asortiman
-          </span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-5 tracking-tight">
-            Naši Proizvodi
-          </h1>
-          <p className="text-white/75 text-xl max-w-2xl leading-relaxed">
-            Kompletna ponuda drvenih paleta, biomase i građevinske građe — sve iz
-            vlastite proizvodnje, sve s jamstvom.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {productSections.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium hover:bg-[#C8A87A] hover:text-[#1C3A2A] hover:border-[#C8A87A] transition-all duration-200"
-              >
-                {s.title}
-              </a>
-            ))}
-          </div>
+      <PageHero
+        eyebrow="Asortiman"
+        title="Naši Proizvodi"
+        lede="Kompletna ponuda drvenih paleta, biomase i građevinske građe — sve iz vlastite proizvodnje, sve s jamstvom."
+        image={{
+          src: "/images/production_sawmill.png",
+          alt: "Proizvodnja paleta u pogonu Šlišurić d.o.o.",
+        }}
+      >
+        <div className="mt-8 flex flex-wrap gap-2">
+          {productSections.map((s) => (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium hover:bg-[#C8A87A] hover:text-[#1C3A2A] hover:border-[#C8A87A] transition-all duration-200"
+            >
+              {s.title}
+            </a>
+          ))}
         </div>
-      </div>
-
-      {/* Hero image strip */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
-        <PlaceholderImage
-          variant="pallets"
-          label="Pogon Šlišurić — fotografija uskoro"
-          aspect="aspect-[16/5]"
-          className="shadow-2xl"
-        />
-      </div>
+      </PageHero>
 
       {/* Product sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
@@ -239,13 +253,20 @@ export default function ProizvodiPage() {
               {section.products.map((product, pi) => (
                 <div
                   key={product.name}
-                  className={`p-6 rounded-2xl bg-white dark:bg-[#162B1E] border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${
-                    (product as any).highlight
+                  className={`rounded-2xl bg-white dark:bg-[#162B1E] border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg overflow-hidden ${
+                    product.highlight
                       ? "border-[#C8A87A] ring-1 ring-[#C8A87A]/30"
                       : "border-[#E2D9CC] dark:border-[#2A4035]"
                   }`}
                 >
-                  {(product as any).highlight && (
+                  <ImagePlaceholder
+                    icon={product.icon}
+                    aspect="landscape"
+                    tone={pi % 2 === 0 ? "ochre" : "sage"}
+                    className="rounded-none border-0 border-b border-[#E2D9CC] dark:border-[#2A4035]"
+                  />
+                  <div className="p-6">
+                  {product.highlight && (
                     <span className="inline-block px-2.5 py-1 rounded-full bg-[#C8A87A] text-[#1C3A2A] text-xs font-bold uppercase tracking-wide mb-3">
                       ★ Najpopularnije
                     </span>
@@ -267,6 +288,7 @@ export default function ProizvodiPage() {
                       </li>
                     ))}
                   </ul>
+                  </div>
                 </div>
               ))}
             </div>

@@ -14,11 +14,16 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1240px",
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+      },
       colors: {
+        /* shadcn/ui compatibility */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -52,6 +57,22 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        /* Brand tokens — use these directly in new UI (see DESIGN.md) */
+        canvas:     "var(--canvas)",
+        paper:      "var(--paper)",
+        "paper-2":  "var(--paper-2)",
+        divider:    "var(--divider)",
+        ochre:      "var(--ochre)",
+        "ochre-deep": "var(--ochre-deep)",
+        "ochre-soft": "var(--ochre-soft)",
+        "ochre-tint": "var(--ochre-tint)",
+        sage:       "var(--sage)",
+        "sage-deep": "var(--sage-deep)",
+        "sage-soft": "var(--sage-soft)",
+        ink:        "var(--ink)",
+        "ink-soft": "var(--ink-soft)",
+        "muted-warm": "var(--muted-warm)",
       },
       borderRadius: {
         lg: "var(--radius)",

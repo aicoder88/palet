@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import PageHero from "@/components/PageHero";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
-import PlaceholderImage from "@/components/PlaceholderImage";
 
 export const metadata: Metadata = {
   title: "Kontakt i upit za ponudu — EPAL palete, ISPM-15, izvoz EU",
@@ -14,37 +14,15 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <div className="bg-[#F8F5F0] dark:bg-[#0F1E16] min-h-screen">
-      {/* Header */}
-      <div className="bg-[#1C3A2A] dark:bg-[#0A1510] pt-32 pb-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, rgba(200,168,122,0.3) 0%, transparent 100%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#C8A87A] mb-4">
-            Zatražite ponudu
-          </span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-5 tracking-tight">
-            Kontakt
-          </h1>
-          <p className="text-white/75 text-xl max-w-xl leading-relaxed">
-            Pošaljite upit i odgovaramo unutar 24 radnih sati. Brzo, konkretno, bez
-            nespotrebnih procesa.
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
-        <PlaceholderImage
-          variant="office"
-          label="Pogon Zagreb — fotografija uskoro"
-          aspect="aspect-[16/5]"
-          className="shadow-2xl"
-        />
-      </div>
+      <PageHero
+        eyebrow="Zatražite ponudu"
+        title="Kontakt"
+        lede="Pošaljite upit i odgovaramo unutar 24 radnih sati. Brzo, konkretno, bez nespotrebnih procesa."
+        image={{
+          src: "/images/drone_new_facility.png",
+          alt: "Pogon Šlišurić d.o.o., Zagreb",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

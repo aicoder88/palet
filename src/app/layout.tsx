@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import "../styles/icons.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -10,6 +10,13 @@ import { COMPANY, SEO_KEYWORDS } from "@/lib/constants";
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin", "latin-ext"],
+  axes: ["opsz"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -78,8 +85,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8F5F0" },
-    { media: "(prefers-color-scheme: dark)", color: "#0A1510" },
+    { media: "(prefers-color-scheme: light)", color: "#EDE3CC" },
+    { media: "(prefers-color-scheme: dark)", color: "#1E1A12" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -148,7 +155,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -157,7 +164,7 @@ export default function RootLayout({
         >
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[#1C3A2A] focus:text-white"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-ink focus:text-paper"
           >
             Preskoči na sadržaj
           </a>
