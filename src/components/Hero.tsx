@@ -36,8 +36,8 @@ export default function Hero() {
           </div>
 
           <h1 className="font-serif font-medium text-ink display-h1 text-balance">
-            Palete spremne za utovar —{" "}
-            <em className="italic-accent">uvijek</em> u 24–48 h.
+            Posvećeni prirodi s prirodnim drvenim proizvodima. To{" "}
+            <em className="italic-accent">je važno</em>.
           </h1>
 
           <p className="lede mx-auto mt-8 max-w-[60ch]">
