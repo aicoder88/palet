@@ -1,25 +1,29 @@
 export const COMPANY = {
   name: "Šlišurić d.o.o.",
   shortName: "Šlišurić",
-  legalName: "Pilana Šlišurić d.o.o.",
-  tagline: "Drvene palete za proizvođače od 1970-ih",
+  legalName: "PROIZVODNJA DRVNE AMBALAŽE I DRVOTOKARIJA, SLIŠURIĆ, VL. BRANKO SLIŠURIĆ",
+  tagline: "Drvena ambalaža i pilana od 1977.",
   positioning:
     "Proizvođač drvenih paleta i drvene ambalaže — isporuka u cijeloj Europskoj uniji i regiji (HR, BiH, RS, SI). Licencirani EPAL partner, ISPM-15 tretman za izvoz van EU.",
-  address: "Ulica Vladimira Nazora 12, 10000 Zagreb, Hrvatska",
-  addressLocality: "Zagreb",
-  addressRegion: "Grad Zagreb",
-  postalCode: "10000",
+  address: "Kralja Tomislava 29, 35403 Rešetari, Hrvatska",
+  addressLocality: "Rešetari",
+  addressRegion: "Brodsko-posavska županija",
+  postalCode: "35403",
   addressCountry: "HR",
-  phone: "+385 1 234 5678",
-  phoneDisplay: "+385 1 234 5678",
+  phone: "+38535367312",
+  phoneDisplay: "+385 035 367 312",
+  phone2: "+38592143949",
+  phone2Display: "+385 092 1439 949",
+  phone3: "+38591761314",
+  phone3Display: "+385 091 7613 147",
   email: "info@slisuric.hr",
   rfqEmail: "ponude@slisuric.hr",
   oib: "12345678901",
   mbs: "080123456",
   workingHours: "Pon–Pet: 07:00–16:00",
-  geo: { lat: 45.815, lng: 15.9819 },
+  geo: { lat: 45.2832, lng: 17.3574 },
   siteUrl: "https://slisuric.hr",
-  foundedYear: 1972,
+  foundedYear: 1977,
   markets: [
     "Hrvatska",
     "Slovenija",
@@ -44,7 +48,7 @@ export const NAV_LINKS = [
   { labelKey: "home", href: "/" },
   { labelKey: "products", href: "/proizvodi" },
   { labelKey: "services", href: "/usluge" },
-  { labelKey: "references", href: "/reference-kupci" },
+  { labelKey: "about", href: "/o-nama" },
   { labelKey: "contact", href: "/kontakt" },
 ] as const;
 
@@ -114,7 +118,7 @@ export const CASE_STUDIES = [
 
 // Verifiable, non-fabricated social proof strip.
 export const SOCIAL_PROOF_ITEMS = [
-  "Tradicija od 1970-ih",
+  "Tradicija od 1977.",
   "ISPM-15 ovlašteni",
   "EPAL licencirani partner",
   "Vlastita pilana i proizvodnja",
@@ -130,7 +134,7 @@ export const HERO = {
   subheadline:
     "Šlišurić je licencirani proizvođač EPAL i industrijskih drvenih paleta. Isporučujemo proizvođačima i distributerima u cijeloj Europskoj uniji i regiji — vlastita pilana, ISPM-15 tretman za izvoz van EU, ured za nabavu koji diže telefon.",
   primaryCta: "Zatražite ponudu (odgovor u 24h)",
-  secondaryCta: "+385 1 234 5678",
+  secondaryCta: "+385 035 367 312",
 };
 
 export const WHY_SLISURIC = [
@@ -294,6 +298,9 @@ export const SEO_KEYWORDS = [
   "biomasa piljevina",
   "građevinska drvena građa",
   "pilana Hrvatska",
+  "pilana Rešetari",
+  "drvena ambalaža Brodsko-posavska",
+  "Slišurić Rešetari",
   "palete BiH",
   "palete Srbija",
   "palete regija Balkan",

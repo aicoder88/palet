@@ -21,7 +21,7 @@ When implementing `DESIGN.md`, add the palette to `tailwind.config.ts` as CSS-va
 
 ## Routes
 
-7 Croatian-language routes: `/`, `/proizvodi`, `/usluge`, `/reference-kupci`, `/lokacija`, `/kontakt`, `/uvjeti-poslovanja`. All SEO-optimized for Google Croatia rankings on wood-pallet keywords.
+8 Croatian-language routes: `/`, `/proizvodi`, `/usluge`, `/o-nama`, `/reference-kupci`, `/lokacija`, `/kontakt`, `/uvjeti-poslovanja`. All SEO-optimized for Google Croatia rankings on wood-pallet keywords.
 
 ## Dev
 

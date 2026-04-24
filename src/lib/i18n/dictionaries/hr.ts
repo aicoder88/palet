@@ -6,6 +6,7 @@ export type Dictionary = {
     products: string;
     services: string;
     references: string;
+    about: string;
     contact: string;
     cta: string;
     openMenu: string;
@@ -23,6 +24,7 @@ const hr: Dictionary = {
     products: "Proizvodi",
     services: "Usluge",
     references: "Reference",
+    about: "O nama",
     contact: "Kontakt",
     cta: "Zatražite ponudu",
     openMenu: "Otvori izbornik",

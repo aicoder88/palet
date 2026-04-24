@@ -11,7 +11,7 @@ const TRUST_BADGES = [
   { icon: icons.palletEpal, label: "EPAL 1200 × 800" },
   { icon: icons.reforestation, label: "ISPM-15 za izvoz" },
   { icon: icons.forklift, label: "Otprema u 24 h" },
-  { icon: icons.tree3, label: "Od 1972." },
+  { icon: icons.tree3, label: "Od 1977." },
 ];
 
 export default function Hero() {
@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-3 mb-8">
             <span className="w-8 h-px bg-ochre" aria-hidden />
             <span className="eyebrow">
-              EPAL licencirani proizvođač · Od 1972.
+              EPAL licencirani proizvođač · Od 1977.
             </span>
             <span className="w-8 h-px bg-ochre" aria-hidden />
           </div>

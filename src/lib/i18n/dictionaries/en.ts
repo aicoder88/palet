@@ -6,6 +6,7 @@ const en: Dictionary = {
     products: "Products",
     services: "Services",
     references: "References",
+    about: "About",
     contact: "Contact",
     cta: "Request a quote",
     openMenu: "Open menu",

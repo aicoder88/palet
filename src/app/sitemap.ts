@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/proizvodi", priority: 0.9 },
     { url: "/usluge", priority: 0.9 },
     { url: "/reference-kupci", priority: 0.8 },
+    { url: "/o-nama", priority: 0.7 },
     { url: "/uvjeti-poslovanja", priority: 0.5 },
     { url: "/kontakt", priority: 0.7 },
     { url: "/lokacija", priority: 0.5 },

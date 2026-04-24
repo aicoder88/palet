@@ -123,7 +123,7 @@ const localBusinessSchema = {
   foundingDate: String(COMPANY.foundedYear),
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ulica Vladimira Nazora 12",
+    streetAddress: "Kralja Tomislava 29",
     addressLocality: COMPANY.addressLocality,
     addressRegion: COMPANY.addressRegion,
     postalCode: COMPANY.postalCode,

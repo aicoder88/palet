@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Clock, Phone, Navigation, ArrowRight } from "lucide-react";
+import { MapPin, Clock, Phone, Navigation, ArrowRight, Mail } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Lokacija — Šlišurić d.o.o.",
+  title: "Lokacija — Šlišurić, Rešetari",
   description:
-    "Pronađite nas: stari pogon i novi pogon Šlišurić d.o.o. Zagreb, Hrvatska. Radimo pon–pet 07:00–16:00.",
+    "Pronađite nas: Kralja Tomislava 29, 35403 Rešetari, Brodsko-posavska županija. Radimo pon–pet 07:00–16:00.",
+  alternates: { canonical: "/lokacija" },
 };
 
 export default function LokacijaPage() {
@@ -30,129 +31,100 @@ export default function LokacijaPage() {
             Naša Lokacija
           </h1>
           <p className="text-white/75 text-xl max-w-xl leading-relaxed">
-            Poslujemo iz dva pogona u Zagrebu. Dobro nas poznaju svi u logistici i
-            građevini.
+            Nalazimo se u Rešetarima u Brodsko-posavskoj županiji — s kamionskim pristupom i
+            dovoljno prostora za brzo ukrcavanje.
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Two facilities */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Stari pogon */}
-          <div className="group">
-            <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm hover:shadow-md transition-all duration-200">
-              {/* Drone image */}
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src="/images/drone_old_facility.png"
-                  alt="Stari pogon — Zagreb"
-                  fill
-                  className="object-cover"
-                />
-                {/* Label */}
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#C8A87A] text-[#1C3A2A] text-xs font-bold uppercase tracking-wide">
-                  Stari pogon
-                </div>
-              </div>
-              <div className="p-6 bg-white dark:bg-[#162B1E]">
-                <h2 className="text-xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
-                  Stari pogon
-                </h2>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Naš originalni pogon u kojemu je sve počelo 1970-ih. Pilana, skladište
-                  paleta i administracija.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2 text-sm">
-                    <MapPin className="w-4 h-4 text-[#C8A87A] flex-shrink-0 mt-0.5" />
-                    <span className="text-[#1A1A14] dark:text-[#EDE8E0]">
-                      Ulica Vladimira Nazora 12, Zagreb
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock className="w-4 h-4 text-[#C8A87A] flex-shrink-0" />
-                    <span className="text-[#1A1A14] dark:text-[#EDE8E0]">
-                      Pon–Pet: 07:00–16:00
-                    </span>
-                  </div>
-                </div>
-                <a
-                  href="https://maps.google.com/?q=Zagreb,+Croatia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#1C3A2A] dark:text-[#C8A87A] hover:underline"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  Navigiraj do nas
-                </a>
+        {/* Facility card */}
+        <div className="mb-16">
+          <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm">
+            <div className="relative h-72 w-full overflow-hidden">
+              <Image
+                src="/images/drone_new_facility.png"
+                alt="Pogon Šlišurić — Rešetari, Brodsko-posavska"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#C8A87A] text-[#1C3A2A] text-xs font-bold uppercase tracking-wide">
+                Pogon Rešetari
               </div>
             </div>
-          </div>
-
-          {/* Novi pogon */}
-          <div className="group">
-            <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm hover:shadow-md transition-all duration-200">
-              {/* Drone image */}
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src="/images/drone_new_facility.png"
-                  alt="Novi pogon — Zagreb"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-wide">
-                  Novi pogon
-                </div>
-                <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#C8A87A] text-[#1C3A2A] text-xs font-bold uppercase tracking-wide">
-                  NOVO
-                </div>
-              </div>
-              <div className="p-6 bg-white dark:bg-[#162B1E]">
-                <h2 className="text-xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-1">
-                  Novi pogon
-                </h2>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Moderni prošireni pogon s kapacitetom od 10.000 paleta. Termička
-                  komora za ISPM-15 tretman, automatizirana linija za palete.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2 text-sm">
-                    <MapPin className="w-4 h-4 text-[#C8A87A] flex-shrink-0 mt-0.5" />
-                    <span className="text-[#1A1A14] dark:text-[#EDE8E0]">
-                      Savska cesta 44, Zagreb (Industrija)
-                    </span>
+            <div className="p-8 bg-white dark:bg-[#162B1E]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-2xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-2">
+                    Šlišurić — pogon u Rešetarima
+                  </h2>
+                  <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
+                    Dvije proizvodne hale ukupne površine 1.200 m², skladišni prostor od 5.000 m²,
+                    sušara i komora za termičku obradu paleta (IPPC 15). Sve na jednoj lokaciji od 1977.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-[#C8A87A] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-[#1A1A14] dark:text-[#EDE8E0]">
+                        {COMPANY.address}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-4 h-4 text-[#C8A87A] flex-shrink-0" />
+                      <span className="text-sm text-[#1A1A14] dark:text-[#EDE8E0]">
+                        {COMPANY.workingHours}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-4 h-4 text-[#C8A87A] flex-shrink-0" />
+                      <div className="flex flex-col gap-0.5">
+                        <a href={`tel:${COMPANY.phone}`} className="text-sm text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline">
+                          {COMPANY.phoneDisplay}
+                        </a>
+                        <a href={`tel:${COMPANY.phone2}`} className="text-sm text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline">
+                          {COMPANY.phone2Display}
+                        </a>
+                        <a href={`tel:${COMPANY.phone3}`} className="text-sm text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline">
+                          {COMPANY.phone3Display}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-4 h-4 text-[#C8A87A] flex-shrink-0" />
+                      <a href={`mailto:${COMPANY.email}`} className="text-sm text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline">
+                        {COMPANY.email}
+                      </a>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock className="w-4 h-4 text-[#C8A87A] flex-shrink-0" />
-                    <span className="text-[#1A1A14] dark:text-[#EDE8E0]">
-                      Pon–Pet: 06:00–18:00
-                    </span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={`https://maps.google.com/?q=Kralja+Tomislava+29,+35403+Re%C5%A1etari,+Hrvatska`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-[#1C3A2A] dark:bg-[#C8A87A] text-white dark:text-[#1C3A2A] font-bold text-sm hover:bg-[#2A5040] dark:hover:bg-[#D4B488] transition-colors"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    Pokreni navigaciju
+                  </a>
+                  <div className="p-4 rounded-xl bg-[#F8F5F0] dark:bg-[#0F1E16] border border-[#E2D9CC] dark:border-[#2A4035] space-y-1.5 text-xs text-muted-foreground">
+                    <div className="font-semibold text-[#1A1A14] dark:text-[#EDE8E0] text-sm mb-2">Informacije</div>
+                    <div>Kamionski pristup — bez ograničenja</div>
+                    <div>Vlastiti parking za osobna vozila</div>
+                    <div>Brzo ukrcavanje, bez čekanja</div>
                   </div>
                 </div>
-                <a
-                  href="https://maps.google.com/?q=Savska+cesta+44,+Zagreb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#1C3A2A] dark:text-[#C8A87A] hover:underline"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  Navigiraj do nas
-                </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Map */}
+        {/* Map placeholder */}
         <div className="mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <h2 className="text-2xl font-bold text-[#1A1A14] dark:text-[#EDE8E0]">
-              Karta lokacije
-            </h2>
-          </div>
+          <h2 className="text-2xl font-bold text-[#1A1A14] dark:text-[#EDE8E0] mb-6">
+            Karta lokacije
+          </h2>
           <div className="rounded-2xl overflow-hidden border border-[#E2D9CC] dark:border-[#2A4035] shadow-sm h-80 relative bg-[#E2D9CC] dark:bg-[#162B1E]">
-            {/* Map placeholder - in production use a real Google Maps iframe */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-[#1C3A2A]/10 dark:bg-[#C8A87A]/10 flex items-center justify-center mb-4">
                 <MapPin className="w-8 h-8 text-[#1C3A2A] dark:text-[#C8A87A]" />
@@ -161,10 +133,10 @@ export default function LokacijaPage() {
                 Google Maps
               </div>
               <div className="text-xs text-muted-foreground mb-4">
-                Zagreb, Hrvatska
+                Rešetari, Brodsko-posavska županija
               </div>
               <a
-                href="https://maps.google.com/?q=Zagreb,+Croatia"
+                href="https://maps.google.com/?q=Kralja+Tomislava+29,+35403+Re%C5%A1etari,+Hrvatska"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#1C3A2A] dark:bg-[#C8A87A] text-white dark:text-[#1C3A2A] text-xs font-semibold hover:bg-[#2A5040] dark:hover:bg-[#D4B488] transition-colors"
@@ -200,9 +172,12 @@ export default function LokacijaPage() {
             </h3>
             <div className="text-sm text-muted-foreground space-y-1">
               <a href={`tel:${COMPANY.phone}`} className="text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline block">
-                {COMPANY.phone}
+                {COMPANY.phoneDisplay}
               </a>
-              <a href={`mailto:${COMPANY.email}`} className="hover:underline text-xs">
+              <a href={`tel:${COMPANY.phone2}`} className="text-[#1C3A2A] dark:text-[#C8A87A] font-semibold hover:underline block">
+                {COMPANY.phone2Display}
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="hover:underline text-xs block mt-1">
                 {COMPANY.email}
               </a>
             </div>
@@ -215,9 +190,9 @@ export default function LokacijaPage() {
               Kako doći
             </h3>
             <div className="text-sm text-muted-foreground space-y-1">
-              <div>Zagreb — lako dostupno</div>
-              <div className="text-xs">Vlastiti parking</div>
+              <div>Rešetari — Brodsko-posavska</div>
               <div className="text-xs">Kamionski pristup</div>
+              <div className="text-xs">Vlastiti parking</div>
             </div>
           </div>
         </div>
